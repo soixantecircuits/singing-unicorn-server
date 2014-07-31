@@ -1,35 +1,35 @@
 <template name="main">
-  <header id="header" class="main-header pattern">
-    <div class="main-title">
-      <h1>Singing</h1>
-      <div class="unicorn-img"></div>
-      <h1>Unicorn</h1>
-    </div>
-    <p class="baseline">Let the pink fluffy unicorns dancing on rainbows magic begin</p>
-    <div class="obj1"></div>
-    <div class="obj2"></div>
-  </header><!-- /header -->
-  {{greeting}}
-  <br/>
-  <input id="songToAdd" class="form-control typeahead" name="search" type="text" placeholder="Song to add to the playlist"
-       autocomplete="off" spellcheck="off"
-       data-source="search" data-template="song" data-selected="selected"/>
-    <div id="groupPlayer">
-    </div>
-    <div id="playlist">
-    {{#each songs}}
-      {{> songItem}}
-    {{/each}}
-    </div>
+	<header id="header" class="main-header pattern">
+		<div class="main-title">
+			<h1>Singing</h1>
+			<div class="unicorn-img"></div>
+			<h1>Unicorn</h1>
+		</div>
+		<p class="baseline">Let the pink fluffy unicorns dancing on rainbows magic begin</p>
+		<div class="obj obj1"></div>
+		<div class="obj obj2"></div>
+	</header><!-- /header -->
+	<section class="searchSection">
+		<div>
+			<input id="songToAdd" class="form-control typeahead" name="search" type="text" placeholder="Search for songs to add to the playlist ..." autocomplete="off" spellcheck="off" data-source="search" data-template="song" data-selected="selected" data-autocompleted="autocompleted"/>
+		</div>
+		<button class="addToPlaylist">Add song</button>
+		<div class="obj obj3"></div>
+	</section>
+	<section class="playlistSection pattern">
+		<h1>playlist</h1>
+		<ul class='songsCtn'>
+			{{#each songs}}
+				{{> songItem}}
+			{{/each}}
+		</ul>
+		<div class="obj obj4"></div>
+		<div class="obj obj5"></div>
+	</section>
 </template>
 
 <template name="songItem">
-  <h1>
-    <small>{{name}}</small>
-    {{#if this.playing}}
-      <span class="on_air"></span>            
-    {{else}}
-      <span class="off"></span>
-    {{/if}}
-  </h1>
+  <li class="songItem {{isPlaying this.playing}} trans-all">
+  	<h3 class="songName">{{name}}</h3>
+  </li>
 </template>

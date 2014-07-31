@@ -15,6 +15,15 @@ if (Meteor.isClient) {
 
   Template.main.rendered = function() {
     //Meteor.typeahead.inject('.typeahead');
+    $(document).on('keyup', '#songToAdd', function() {
+      var menu = $('.tt-dropdown-menu');
+      if(!menu.find('.tt-suggestions').length && $('#songToAdd').val().length > 1) {
+        menu.slideDown(300);
+        menu.addClass('loading');
+      } else {
+        menu.removeClass('loading');
+      }
+    })
   };
 
   Meteor.startup(function() {
@@ -29,19 +38,23 @@ if (Meteor.isClient) {
         console.log("You pressed the button");
     }
   });
+
+  Template.songItem.helpers({
+    isPlaying: function(state){
+      return state ? 'isPlaying' : 'notPlaying'
+    }
+  });
+
   Template.main.selected = function(event, suggestion, datasetName) {
     console.log(suggestion);
 
-    $('#groupPlayer').empty();
+    $('#songToAdd').empty();
 
     var name = $('<p/>', {
       'text': suggestion.name,
       'data-id': suggestion.id.videoId
     });
-    var button = $('<button/>', {
-      'class': 'addToPlaylist',
-      'text': "add"
-    });
+
 
     $(document).one('click', '.addToPlaylist', function() {
       if ($('#songToAdd').data('name') != '') {
@@ -51,13 +64,13 @@ if (Meteor.isClient) {
           playing: false,
           dateAdded: new Date()
         });
+        $('#songToAdd').empty();
       } else {
         console.log('no name');
       }
     });
 
-    name.appendTo($('#groupPlayer'));
-    button.appendTo($('#groupPlayer'));
+    name.appendTo($('#songToAdd'));
 
     $('#songToAdd').val(suggestion.name).data('name', suggestion.name).data('id', suggestion.id.videoId);
   }

@@ -1,5 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 .pattern {
   background: url('/img/pattern_back.png') 0 0 repeat;
+}
+
+.obj {
+  display: block;
+  position: absolute;
+  background: 0 0 no-repeat;
+  z-index: 10;
+}
+
+section, header {
+  position: relative;
 }
 
 /**
@@ -7,19 +23,19 @@
  */
 .main-header {
   width: 100%;
-  position: relative;
   font-family: "Brandon Grotesque Regular";
   text-transform: uppercase;
   text-align: center;
 }
 
-.main-header h1 {
-  color: #272727;
-  font-size: 43px;
+.main-title {
+  margin-top: 80px;
+  line-height: 456px;
 }
 
-.main-title {
-  line-height: 456px;
+.main-title h1 {
+  color: #272727;
+  font-size: 43px;
 }
 
 .main-title > h1 {
@@ -40,112 +56,198 @@
   color: #ffa1a1;
   font-size: 22px;
   font-weight: 500;
-  width: 798px;
-  height: 16px;
+  margin-bottom: 60px;
 }
 
 .obj1 {
-  display: block;
-  position: absolute;
   left: 80%;
   top: 450px;
   width: 153px;
   height: 173px;
-  background: url('/img/obj1.png') 0 0 no-repeat;
+  background: url('/img/obj1.png');
 }
 
 .obj2 {
-  display: block;
-  position: relative;
-  left: 10%;
-  top: 100%;
+  left: 8%;
+  top: 95%;
   width: 114px;
   height: 109px;
-  background: url('/img/obj2.png') 0 0 no-repeat;
+  background: url('/img/obj2.png');
 }
 
 /**
  * QUERY
  */
-.typeahead,
-.tt-query,
-.tt-hint {
-  width: 396px;
-  height: 30px;
-  padding: 8px 12px;
-  font-size: 24px;
-  line-height: 30px;
-  border: 2px solid red;
-  border-radius: 8px;
-  outline: none;
+.searchSection {
+  background: url('/img/photo_back.png') 0 0 no-repeat;
+  background-size: cover;
+  height: 352px;
+  width: 100%;
+  text-align: center;
 }
 
 .typeahead {
-  background-color: #fff;
-}
-
-.typeahead:focus {
-  border: 2px solid #0097cf;
-}
-
-.tt-query {
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-.tt-hint {
-  color: #999
+  width: 526px; /* 550 - 2*12 padding */
+  height: 30px;
+  margin-top: 20%;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 28px;
+  line-height: 30px;
+  border: 2px solid #FFF;
+  background: none transparent;
+  outline: none;
+  color: #FFF;
+  font-family: "Brandon Grotesque Regular";
 }
 
 .tt-dropdown-menu {
-  width: 422px;
-  margin-top: 3px;
+  width: 550px;
+  background: #f8d267;
   padding: 8px 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  border: 2px solid #FFF;
+  color: #FFF;
+  outline: none;
 }
 
-.tt-suggestion {
-  padding: 3px 20px;
-  font-size: 18px;
-  line-height: 24px;
+.tt-dropdown-menu.loading {
+  min-height: 50px;
+  background: url('/img/loading.gif') center no-repeat #f8d267 ;
+}
+
+.tt-suggestion{
+  font-family: "Brandon Grotesque Regular";
+  list-style: none;
+  font-size: 16px;
 }
 
 .tt-suggestion.tt-cursor {
-  color: #fff;
-  background-color: #0097cf;
-
+  background: #ffa1a1;
 }
 
-.tt-suggestion p {
-  margin: 0;
+.addToPlaylist {
+  margin-top: 50px;
+  width: 130px;
+  height: 35px;
+  background: #ffa1a1;
+  text-transform: uppercase;
+  color: #FFF;
+  border: none;
+  font-weight: 400;
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
 }
 
-.example-twitter-oss .tt-suggestion {
-  padding: 8px 20px;
+.addToPlaylist:hover,
+.addToPlaylist:hover:before,
+.addToPlaylist:hover:after {
+  cursor: pointer;
+  background: #febebe;
 }
 
-.example-twitter-oss .tt-suggestion + .tt-suggestion {
-  border-top: 1px solid #ccc;
+
+.addToPlaylist:before,
+.addToPlaylist:after {
+  content: '';
+  background: #ffa1a1;
+  width: 35px;
+  height: 35px;
+  border-radius: 40%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
 }
 
-.example-twitter-oss .repo-language {
-  float: right;
-  font-style: italic;
+.addToPlaylist:before {
+  left: -13px;
 }
 
-.example-twitter-oss .repo-name {
-  font-weight: bold;
+.addToPlaylist:after {
+  right: -13px;
 }
 
-.example-twitter-oss .repo-description {
-  font-size: 14px;
+.obj3 {
+  right: 5%;
+  top: 50%;
+  width: 156px;
+  height: 141px;
+  background: url('/img/obj3.png');
 }
 
-.example-sports .league-name {
-  margin: 0 20px 5px 20px;
-  padding: 3px 0;
-  border-bottom: 1px solid #ccc;
+/**
+ * PLAYLIST
+ */
+.playlistSection {
+  text-align: center;
+  font-family: "Brandon Grotesque Regular"
+}
+
+.playlistSection h1 {
+  margin-top: 80px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 36px;
+}
+
+.songsCtn {
+  width: 50%;
+  margin: auto;
+  list-style: none;
+}
+
+.songItem {
+  text-transform: uppercase;
+  font-size: 20px;
+  padding-top: 10px 15px;
+  margin: 30px auto;
+  width: inherit;
+}
+
+.songItem.notPlaying {
+  color: #272727;
+  border: none;
+}
+
+.songItem.isPlaying {
+  color: #ffa1a1;
+  border: 2px solid #ffa1a1;
+}
+
+.trans-all {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.obj4 {
+  right: 10%;
+  top: 30%;
+  width: 154px;
+  height: 150px;
+  background: url('/img/obj4.png');
+}
+
+.obj5 {
+  left: 5%;
+  top: 50%;
+  width: 239px;
+  height: 271px;
+  background: url('/img/obj5.png');
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #FFF;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #FFF;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #FFF;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #FFF;
 }
