@@ -36,3 +36,8 @@
 ehthumbs.db
 Icon?
 Thumbs.db
+
+settings.json
+
+.meteor/local
+.meteor/meteorite

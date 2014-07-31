@@ -1,0 +1,27 @@
+span.on_air{
+  background: green;
+   border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 5px;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+}
+
+span.off{
+  background: red;
+   border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 5px;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+}

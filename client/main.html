@@ -1,0 +1,26 @@
+<template name="main">
+  <h1>Unicorn</h1>
+  {{greeting}}
+  <br/>
+  <input id="songToAdd" class="form-control typeahead" name="search" type="text" placeholder="Song to add to the playlist"
+       autocomplete="off" spellcheck="off"
+       data-source="search" data-template="song" data-selected="selected"/>
+    <div id="groupPlayer">
+    </div>
+    <div id="playlist">
+    {{#each songs}}
+      {{> songItem}}
+    {{/each}}
+    </div>
+</template>
+
+<template name="songItem">
+  <h1>
+    <small>{{name}}</small>
+    {{#if this.playing}}
+      <span class="on_air"></span>            
+    {{else}}
+      <span class="off"></span>
+    {{/if}}
+  </h1>
+</template>
