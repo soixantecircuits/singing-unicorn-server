@@ -124,7 +124,7 @@ if (Meteor.isServer) {
       var fut = new Future();
       Youtube.authenticate({
         type: 'key',
-        key: config.youtube.key
+        key: Meteor.settings.youtube.key
       });
       var listOfMp3 = [];
       Youtube.search.list({
