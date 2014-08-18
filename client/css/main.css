@@ -19,6 +19,27 @@ section, header {
 }
 
 /**
+ * MEDIAS
+ */
+@media screen and (min-width: 1086px) {
+  .main-title {
+    line-height: 10;
+  }
+  .typeahead {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 1086px) {
+  .main-title {
+    line-height: 5;
+  }
+  .typeahead {
+    font-size: 20px;
+  }
+}
+
+/**
  * HEADER
  */
 .main-header {
@@ -30,15 +51,17 @@ section, header {
 
 .main-title {
   margin: 80px 0;
-  line-height: 456px;
+  min-height: 360px;
+  height: 100%;
 }
 
 .unicorn-img {
   display: inline-block;
-  min-width: 457px;
-  min-height: 456px;
+  width: 90%;
+  max-height: 456px;
   background: url('/img/unicorn.png') center no-repeat;
   padding-left: 15px;
+  background-size: contain;
 }
 
 .main-title h1 {
@@ -53,6 +76,7 @@ section, header {
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 60px;
+  padding: 0 10px;
 }
 
 .obj1 {
@@ -88,7 +112,6 @@ section, header {
   margin-top: 20%;
   text-align: center;
   padding: 8px 12px;
-  font-size: 28px;
   line-height: 30px;
   border: 2px solid #FFF;
   background: none transparent;
