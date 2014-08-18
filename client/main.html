@@ -1,9 +1,7 @@
 <template name="main">
 	<header id="header" class="main-header pattern">
-		<div class="main-title">
-			<h1>Singing</h1>
-			<div class="unicorn-img"></div>
-			<h1>Unicorn</h1>
+		<div class="main-title unicorn-img">
+			<h1>Singing Unicorn</h1>
 		</div>
 		<p class="baseline">Let the pink fluffy unicorns dancing on rainbows magic begin</p>
 		<div class="obj obj1"></div>
@@ -19,7 +17,7 @@
 	<section class="playlistSection pattern">
 		<h1>playlist</h1>
 		<ul class='songsCtn'>
-			{{#each songs}}
+			{{#each invertLoop songs}}
 				{{> songItem}}
 			{{/each}}
 		</ul>

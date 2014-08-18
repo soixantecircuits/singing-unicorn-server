@@ -29,27 +29,23 @@ section, header {
 }
 
 .main-title {
-  margin-top: 80px;
+  margin: 80px 0;
   line-height: 456px;
+}
+
+.unicorn-img {
+  display: inline-block;
+  min-width: 457px;
+  min-height: 456px;
+  background: url('/img/unicorn.png') center no-repeat;
+  padding-left: 15px;
 }
 
 .main-title h1 {
   color: #272727;
   font-size: 43px;
-}
-
-.main-title > h1 {
-  display: inline-block;
-}
-
-.unicorn-img {
-  display: inline-block;
-  width: 457px;
-  height: 456px;
-  background: url('/img/unicorn.png') 0 0 no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
+  word-spacing: 550px;
+  margin-left: 10px;
 }
 
 .baseline {

@@ -10,8 +10,12 @@ if (Meteor.isClient) {
   Template.main.helpers({
     songs: function() {
       return Playlist.find({}).fetch();
+    },
+    invertLoop: function(el) {
+      return el.reverse();
     }
   });
+
 
   Template.main.rendered = function() {
     //Meteor.typeahead.inject('.typeahead');
