@@ -18,6 +18,10 @@ section, header {
   position: relative;
 }
 
+button:focus {
+  outline: none;
+}
+
 /**
  * MEDIAS
  */
@@ -156,6 +160,7 @@ section, header {
   font-size: 18px;
   position: relative;
   z-index: 1;
+  opacity: 0;
 }
 
 .addToPlaylist:hover,
