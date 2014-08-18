@@ -28,10 +28,6 @@ if (Meteor.isClient) {
         menu.removeClass('loading');
       }
     })
-
-    $('#songToAdd').focusout(function(){
-      $('.addToPlaylist').fadeTo(500, 0);
-    })
   };
 
   Meteor.startup(function() {
@@ -55,19 +51,16 @@ if (Meteor.isClient) {
 
   Template.main.selected = function(event, suggestion, datasetName) {
     console.log(suggestion);
+    $('#songToAdd').val(suggestion.name).data('name', suggestion.name).data('id', suggestion.id.videoId);
 
     $('.addToPlaylist').fadeTo(500, 1);
-
-    // $('#songToAdd').empty();
 
     var name = $('<p/>', {
       'text': suggestion.name,
       'data-id': suggestion.id.videoId
     });
-    // $('#songToAdd').parent().parent().append(name);
 
     $(document).one('click', '.addToPlaylist', function() {
-      // if ($('#songToAdd').data('name') != '') {
       if (name) {
         Playlist.insert({
           videoId: $('#songToAdd').data('id'),
@@ -82,9 +75,6 @@ if (Meteor.isClient) {
       }
     });
 
-    name.appendTo($('#songToAdd'));
-
-    $('#songToAdd').val(suggestion.name).data('name', suggestion.name).data('id', suggestion.id.videoId);
   }
 
 }
