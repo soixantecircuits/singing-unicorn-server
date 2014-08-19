@@ -18,7 +18,6 @@ if (Meteor.isClient) {
 
 
   Template.main.rendered = function() {
-    //Meteor.typeahead.inject('.typeahead');
     $(document).on('keyup', '#songToAdd', function() {
       var menu = $('.tt-dropdown-menu');
       if(!menu.find('.tt-suggestions').length && $('#songToAdd').val().length > 1) {
@@ -29,6 +28,18 @@ if (Meteor.isClient) {
       }
     })
   };
+
+  Template.songItem.rendered = function(){
+    $('.isPlaying > .info').addClass('animated  bounceOutLeft');
+    $('.isPlaying').hover(
+      function(){
+        $('.isPlaying > .info').removeClass('animated fadeOutLeft');
+        $('.isPlaying > .info').addClass('animated fadeInLeft');
+      }, function(){
+        $('.isPlaying > .info').removeClass('animated fadeInLeft');
+        $('.isPlaying > .info').addClass('animated fadeOutLeft');
+      });
+  }
 
   Meteor.startup(function() {
     // initializes all typeahead instances
