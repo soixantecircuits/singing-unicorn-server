@@ -150,6 +150,17 @@ button:focus {
   background: #ffa1a1;
 }
 
+.grayscale {
+  -webkit-filter: grayscale(0.5);
+  filter: grayscale(0);
+  cursor: default !important;
+}
+.grayscale:hover,
+.grayscale:hover:before,
+.grayscale:hover:after {
+  cursor: default !important;
+  background: #ffa1a1 !important;
+}
 .addToPlaylist {
   margin-top: 50px;
   width: 130px;
@@ -162,7 +173,6 @@ button:focus {
   font-size: 18px;
   position: relative;
   z-index: 1;
-  opacity: 0;
 }
 
 .addToPlaylist:hover,

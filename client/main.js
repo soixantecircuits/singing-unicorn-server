@@ -15,9 +15,7 @@ Template.main.helpers({
   },
   currentSong: function(){
     var song = Playlist.findOne({playing: true});
-    console.log("Voici le nom: "+song.name);
     return song.name;
-    //return Session.get('currentlyPlaying');
   }
 });
 
@@ -67,14 +65,17 @@ Template.main.selected = function(event, suggestion, datasetName) {
   console.log(suggestion);
   $('#songToAdd').val(suggestion.name).data('name', suggestion.name).data('id', suggestion.id.videoId);
 
-  $('.addToPlaylist').fadeTo(500, 1);
 
   var name = $('<p/>', {
     'text': suggestion.name,
     'data-id': suggestion.id.videoId
   });
 
-  $(document).one('click', '.addToPlaylist', function() {
+  if(name){
+    $('.addToPlaylist').removeClass('grayscale');
+  }
+
+  $(document).one('click', '.addToPlaylist', function(event) {
     if (name) {
       Playlist.insert({
         videoId: $('#songToAdd').data('id'),
@@ -83,7 +84,8 @@ Template.main.selected = function(event, suggestion, datasetName) {
         dateAdded: new Date()
       });
       $('#songToAdd').empty();
-      $('.addToPlaylist').fadeTo(500, 0);
+      $('.addToPlaylist').addClass('grayscale');
+      event.preventDefault();
     } else {
       console.log('no name');
     }
