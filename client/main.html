@@ -17,7 +17,17 @@
 		<div class="obj obj3"></div>
 	</section>
 	<section class="playlistSection pattern">
-		<h1>playlist</h1>
+		<h1>Currently Playing</h1>
+		<ul class="songsCtn">
+			<li class="songItem trans-all">
+				{{#if currentSong}}
+					<h3 class="songName">{{currentSong}}</h3>
+				{{else}}
+					<h3 class="songName">No song is currently playing</h3>
+				{{/if}}
+			</li>
+		</ul>
+		<h1>Playlist</h1>
 		<ul class='songsCtn'>
 			{{#each invertLoop songs}}
 				{{> songItem}}
