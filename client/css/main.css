@@ -51,6 +51,8 @@ button:focus {
   font-family: "Brandon Grotesque Regular";
   text-transform: uppercase;
   text-align: center;
+  height: 100vh;
+  position: relative;
 }
 
 .main-title {
@@ -81,6 +83,9 @@ button:focus {
   font-weight: 500;
   margin-bottom: 60px;
   padding: 0 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%
 }
 
 .obj1 {
