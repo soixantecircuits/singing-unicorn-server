@@ -30,17 +30,6 @@ Template.main.rendered = function() {
     }
   });
 };
-Template.songItem.rendered = function(){
-  $('.isPlaying > .info').addClass('animated  bounceOutLeft');
-  $('.isPlaying').hover(
-    function(){
-      $('.isPlaying > .info').removeClass('animated fadeOutLeft');
-      $('.isPlaying > .info').addClass('animated fadeInLeft');
-    }, function(){
-      $('.isPlaying > .info').removeClass('animated fadeInLeft');
-      $('.isPlaying > .info').addClass('animated fadeOutLeft');
-    });
-}
 
 Meteor.startup(function() {
   // initializes all typeahead instances
