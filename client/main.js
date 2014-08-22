@@ -30,6 +30,29 @@ Template.main.rendered = function() {
     }
   });
   floatPapercraft();
+
+  var isAtTop, 
+      scrollSpeed = 1,
+      menuAppearSpeed = 0.5,
+      minMenu = $('.min-header');
+
+  if($(window).scrollTop()==0){
+    isAtTop = true;
+  } else {
+    isAtTop = false;
+    TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
+  }
+
+  $(window).scroll(function(event) {
+    // If top of page
+    if(isAtTop==true){
+      TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
+      TweenMax.to($('#header'), scrollSpeed, {top: '-100vh', position: 'absolute', opacity: 0, onComplete: function(){
+        console.log("Fin descente !");        
+        isAtTop = false;
+      }});
+    }
+  });
 };
 
 Meteor.startup(function() {
