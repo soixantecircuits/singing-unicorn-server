@@ -29,6 +29,7 @@ Template.main.rendered = function() {
       menu.removeClass('loading');
     }
   });
+  floatPapercraft();
 };
 
 Meteor.startup(function() {
@@ -79,4 +80,33 @@ Template.main.selected = function(event, suggestion, datasetName) {
       console.log('no name');
     }
   });
+}
+function floatPapercraft(){
+  var papercrafts = $('.obj');
+  for(i=1; i<=papercrafts.length; i++){
+    var paper = $('.obj'+i),
+        position = paper.position();
+    floatSinglePaper(paper, position);
+  }
+}
+
+function floatSinglePaper(obj, position){
+  var topMove = gaussianNumber(0, 10) +position.top;
+  var leftMove = gaussianNumber(0, 10) + position.left;
+  topMove = formatDistance(topMove); 
+  leftMove = formatDistance(leftMove);
+
+  TweenMax.to(obj, 2, {top: topMove, left: leftMove, ease: Quad.easeOut, onComplete: function(){
+    floatSinglePaper(obj, position);
+  }});
+}
+
+function sndNumber() {
+  return (Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1);
+}
+function gaussianNumber(mean, stdev) {
+  return sndNumber()*stdev+mean;
+}
+function formatDistance(nbr){
+  return nbr+"px";
 }
