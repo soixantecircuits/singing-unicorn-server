@@ -33,26 +33,17 @@ Template.main.rendered = function() {
 
   Session.set('tooltipState', false);
 
-  var isAtTop, 
-      scrollSpeed = 1,
-      menuAppearSpeed = 0.5,
-      minMenu = $('.min-header');
-
   if($(window).scrollTop()==0){
-    isAtTop = true;
+    Session.set('isAtTop', true);
   } else {
     isAtTop = false;
-    TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
+    Session.set('isAtTop', false);
   }
 
   $(window).scroll(function(event) {
     // If top of page
-    if(isAtTop==true){
-      TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
-      TweenMax.to($('#header'), scrollSpeed, {top: '-100vh', position: 'absolute', onComplete: function(){
-        isAtTop = false;
-      }});
-      $($('html, body')).animate({scrollTop: 0}, scrollSpeed);
+    if(Session.get('isAtTop')){
+      scrollAnim();
     }
   });
 };
@@ -78,6 +69,9 @@ Template.main.events({
       TweenMax.to(tooltip, animSpeed, {top: "120px", opacity: 0});
       Session.set('tooltipState', false);      
     }
+  },
+  'click #base-click': function(){
+    scrollAnim();
   }
 });
 
@@ -148,6 +142,18 @@ function floatSinglePaper(obj, position){
   TweenMax.to(obj, 2, {top: topMove, left: leftMove, ease: Quad.easeOut, onComplete: function(){
     floatSinglePaper(obj, position);
   }});
+}
+
+function scrollAnim(){
+  var scrollSpeed = 0.7,
+      menuAppearSpeed = 0.7,
+      minMenu = $('.min-header');
+
+  TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
+  TweenMax.to($('#header'), scrollSpeed, {top: '-100vh', position: 'absolute', onComplete: function(){
+    Session.set('isAtTop', false);
+  }});
+  $('html, body').animate({scrollTop: 0}, scrollSpeed);
 }
 
 function sndNumber() {
