@@ -50,6 +50,10 @@ Template.main.rendered = function() {
       scrollAnim();
     }
   });
+  if($(window).width()<568){
+    var tooltipHeight = $(window).height() -180;
+    $('.tooltip-about').height(tooltipHeight);
+  }
 };
 
 Template.main.events({

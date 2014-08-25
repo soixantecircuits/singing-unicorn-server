@@ -23,27 +23,6 @@ button:focus {
 }
 
 /**
- * MEDIAS
- */
-@media screen and (min-width: 1086px) {
-  .main-title {
-    line-height: 10;
-  }
-  .typeahead {
-    font-size: 28px;
-  }
-}
-
-@media screen and (max-width: 1086px) {
-  .main-title {
-    line-height: 5;
-  }
-  .typeahead {
-    font-size: 20px;
-  }
-}
-
-/**
  * HEADER
  */
 .main-header {
@@ -58,41 +37,45 @@ button:focus {
 }
 
 .main-title {
-  margin: 80px 0;
-  min-height: 360px;
+  margin: 10vh 0;
+  min-height: 50vh;
   height: 100%;
 }
 
 .unicorn-img {
   display: inline-block;
   width: 90%;
-  max-height: 456px;
+  max-height: 50vh;
   background: url('/img/unicorn.png') center no-repeat;
-  padding-left: 15px;
+  /*padding-left: 15px;*/
   background-size: contain;
 }
 
 .main-title h1 {
   color: #272727;
-  font-size: 43px;
-  word-spacing: 550px;
-  margin-left: 10px;
+  font-size: 4vh;
+  word-spacing: 55vh;
+  line-height: 50vh;
+}
+.main-title h1::before {
+  content: "a";
+  opacity: 0;
 }
 
 .baseline {
   color: #ffa1a1;
-  font-size: 22px;
+  font-size: 2.5vh;
   font-weight: 500;
-  margin-bottom: 60px;
+  margin-bottom: 6vh;
   position: absolute;
-  bottom: 50px;
+  bottom: 6vh;
   width: 100%
 }
 .base-click {
   color: #ffa1a1;
-  font-size: 26px;
+  font-size: 3vh;
   font-weight: 500;
-  margin-bottom: 60px;
+  margin-bottom: 6vh;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -136,7 +119,7 @@ button:focus {
   text-align: center;
   line-height: 120px;
   display: inline-block;
-  width: 50%;
+  width: 70%;
   margin-right: -4px;
   font-size: 22px;
   letter-spacing: 3px;
@@ -161,10 +144,10 @@ button:focus {
   display: block;
 }
 .min-header .about {
-  width: 25%;
+  width: 15%;
   float: left;
   line-height: 120px;
-  padding-left: 40px;
+  padding-left: 3%;
   font-size: 21px;
   color: #ffa1a1;
   font-family: "Brandon Grotesque Bold";
@@ -232,11 +215,11 @@ button:focus {
   color: #b1b1b1;
 }
 .min-header .social {
-  width: 25%;
+  width: 15%;
   display: inline-block;
   height: 120px;
   float: right;
-  padding-right: 30px;
+  padding-right: 3%;
   text-align: right;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -269,6 +252,7 @@ button:focus {
   padding: 8px 12px;
   line-height: 50px;
   border: 2px solid #FFF;
+  font-size: 26px;
   background: none transparent;
   outline: none;
   color: #FFF;
@@ -468,4 +452,131 @@ button:focus {
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #FFF;
+}
+
+@media screen and (max-width: 1024px) {
+  .main-title h1 {
+    word-spacing: 2vh;
+    line-height: 5vh;
+    position: absolute;
+    bottom: -6.5vh;
+    display: block;
+    width: 100%;
+  }
+  .main-title h1::before {
+    content: "";
+  }
+  .unicorn-img {
+    margin: 5vh 0;
+    position: relative;
+  }
+  .baseline {
+    font-size: 2.3vh;
+    bottom: 10vh;
+  }
+  .base-click {
+    font-size: 2.8vh;
+    bottom: 4vh;
+    margin-bottom: 4vh;
+  }
+  .min-header h1 {
+    font-size: 18px;
+  }
+  .min-header h1 .unicorn-min {
+    height: 80px;
+    width: 80px;
+    margin: 0 5px;
+  }
+  .min-header .about {
+    font-size: 16px;
+  }
+  .min-header .tooltip-about {
+    left: 2%;
+    width: 96%;
+  }
+  .songsCtn {
+    width: 80%;
+  }
+  .obj2 {
+    top: 8%;
+    left: 6%;
+  }
+  .obj4 {
+    right: 0%;
+    top: 80%;
+  }
+  .obj5 {
+    top: 55%;
+    left: -20px;
+    -ms-transform: rotate(-30deg); /* IE 9 */
+    -webkit-transform: rotate(-30deg); /* Chrome, Safari, Opera */
+    transform: rotate(-30deg);
+  }
+  .typeahead {
+    width: 90vw;
+  }
+  .songItem.isPlaying:hover .info {
+    opacity: 0;
+    left: 0;
+  }
+}
+@media screen and (max-width: 568px) {
+  .baseline {
+    font-size: 14px;
+  }
+  .base-click {
+    font-size: 16px;
+    padding: 0 10px;
+    margin-bottom: 0;
+  }
+  .min-header h1 {
+    position: relative;
+    font-size: 16px;
+    line-height: 205px;
+  }
+  .min-header h1 .unicorn-min {
+    position: absolute;
+    left: 50%;
+    margin-left: -40px;
+    margin-top: 10px;
+  }
+  .min-header .about {
+    line-height: 100px;
+  }
+  .min-header .tooltip-about {
+    padding: 10px;
+  }
+  .min-header .tooltip-about img {
+    height: 20vh;
+    display: block;
+    float: none;
+    margin: auto;
+  }
+  .obj1 {
+    top: 10%;
+  }
+  .obj2 {
+    left: -60px;
+    top: 2;
+  }
+  .obj3 {
+    right: -30px;
+    top: 55%;
+  }
+  .obj4, .obj5 {
+    opacity: 0;
+  }
+  .playlistSection h1 {
+    font-size: 26px;
+    margin-top: 40px;
+  }
+  .songsCtn {
+    width: 95%;
+  }
+  .songItem {
+    margin: 10px auto;
+  }
+  .songItem .songName{
+    font-size: 16px;
+  }
 }
