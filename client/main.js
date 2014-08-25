@@ -34,7 +34,7 @@ Template.main.rendered = function() {
   Session.set('tooltipState', false);
 
   var isAtTop, 
-      scrollSpeed = 2,
+      scrollSpeed = 1,
       menuAppearSpeed = 0.5,
       minMenu = $('.min-header');
 
@@ -49,10 +49,10 @@ Template.main.rendered = function() {
     // If top of page
     if(isAtTop==true){
       TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
-      TweenMax.to($('#header'), scrollSpeed, {top: '-100vh', position: 'absolute', opacity: 0, onComplete: function(){
-        console.log("Fin descente !");        
+      TweenMax.to($('#header'), scrollSpeed, {top: '-100vh', position: 'absolute', onComplete: function(){
         isAtTop = false;
       }});
+      $($('html, body')).animate({scrollTop: 0}, scrollSpeed);
     }
   });
 };

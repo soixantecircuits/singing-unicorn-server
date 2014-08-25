@@ -54,6 +54,7 @@ button:focus {
   height: 100vh;
   position: relative;
   top: 0;
+  z-index: 5;
 }
 
 .main-title {
@@ -84,10 +85,20 @@ button:focus {
   font-weight: 500;
   margin-bottom: 60px;
   position: absolute;
-  bottom: 0;
+  bottom: 50px;
   width: 100%
 }
-
+.base-click {
+  color: #ffa1a1;
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+}
 .obj1 {
   left: 80%;
   top: 450px;
@@ -143,6 +154,11 @@ button:focus {
   -moz-background-size: cover; /* pour Firefox */
   -o-background-size: cover; /* pour Opera */
   background-size: cover; /* version standardisée */
+}
+.min-header h1 .unicorn-min a {
+  height: 100%;
+  width: 100%;
+  display: block;
 }
 .min-header .about {
   width: 25%;
@@ -241,6 +257,7 @@ button:focus {
   background-size: cover;
   height: 352px;
   width: 100%;
+  margin-top: 120px;
   text-align: center;
 }
 
