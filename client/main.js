@@ -16,6 +16,10 @@ Template.main.helpers({
   currentSong: function(){
     var song = Playlist.findOne({playing: true});
     return song.name;
+  },
+  currentLink: function(){
+    var song = Playlist.findOne({playing: true});
+    return "http://www.youtube.com/watch?v="+song.videoId;
   }
 });
 
@@ -118,7 +122,6 @@ Template.main.selected = function(event, suggestion, datasetName) {
       });
       $('#songToAdd').empty();
       $('.addToPlaylist').addClass('grayscale');
-      event.preventDefault();
     } else {
       console.log('no name');
     }
@@ -134,8 +137,8 @@ function floatPapercraft(){
 }
 
 function floatSinglePaper(obj, position){
-  var topMove = gaussianNumber(0, 10) +position.top;
-  var leftMove = gaussianNumber(0, 10) + position.left;
+  var topMove = gaussianNumber(0, 8) +position.top;
+  var leftMove = gaussianNumber(0, 8) + position.left;
   topMove = formatDistance(topMove); 
   leftMove = formatDistance(leftMove);
 

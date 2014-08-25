@@ -428,7 +428,10 @@ button:focus {
   background: #FFF;
   font-size: 20px;
 }
-
+.songItem .songName a {
+  text-decoration: none;
+  color: #ffa1a1;
+}
 .trans-all {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;

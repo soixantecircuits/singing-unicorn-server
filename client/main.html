@@ -9,7 +9,7 @@
 		<div class="obj obj2"></div>
 	</header><!-- /header -->
 	<div class="min-header">
-		<h1>Singing <span class="unicorn-min"></span> Unicorn</h1>
+		<h1>Singing <span class="unicorn-min"><a href="javascript:window.location.reload()"></a></span> Unicorn</h1>
 		<span class="about"><span id="about">About</span></span>
 		<div class="tooltip-about">
 			<img src="/img/unicorn_about.png" alt="Unicorn">
@@ -41,7 +41,7 @@
 		<ul class="songsCtn">
 			<li class="songItem trans-all">
 				{{#if currentSong}}
-					<h3 class="songName actually-playing">{{currentSong}}</h3>
+					<h3 class="songName actually-playing"><a href="{{currentLink}}">{{currentSong}}</a></h3>
 				{{else}}
 					<h3 class="songName">No song is currently playing</h3>
 				{{/if}}
