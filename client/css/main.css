@@ -106,31 +106,39 @@ button:focus {
 .min-header {
   display: block;
   position: fixed;
-  top: -62px;
+  top: -120px;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 120px;
   z-index: 100;
   background: url('/img/pattern_back.png') 0 0 repeat;
   font-family: "Brandon Grotesque Regular";
   text-transform: uppercase;
-  border-bottom: 2px solid #ffa1a1;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .min-header h1{
   text-align: center;
-  line-height: 60px;
+  line-height: 120px;
   display: inline-block;
   width: 50%;
   margin-right: -4px;
+  font-size: 22px;
+  letter-spacing: 3px;
 }
 .min-header h1 .unicorn-min {
-  height: 40px;
-  width: 40px;
+  height: 100px;
+  width: 100px;
   display: inline-block;
-  margin: 0 10px; 
+  margin: 0 30px; 
   position: relative;
-  top: 8px;
-  background: url('/img/unicorn.png') center no-repeat;
+  top: -5px;
+  vertical-align: middle;
+  background: url('/img/unicorn_menu_small.png') center no-repeat;
   -webkit-background-size: cover; /* pour Chrome et Safari */
   -moz-background-size: cover; /* pour Firefox */
   -o-background-size: cover; /* pour Opera */
@@ -139,17 +147,78 @@ button:focus {
 .min-header .about {
   width: 25%;
   float: left;
-  line-height: 60px;
-  padding-left: 30px;
+  line-height: 120px;
+  padding-left: 40px;
   font-size: 21px;
+  color: #ffa1a1;
+  font-family: "Brandon Grotesque Bold";
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
+  position: relative;
+  z-index: 999;
+}
+.min-header .about #about {
+  cursor: pointer;
+}
+.min-header .tooltip-about {
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  display: block;
+  width: 650px;
+  background: white;
+  border-radius: 5px;
+  padding: 20px;
+  color: #4c4c4c;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  -webkit-box-shadow: 0 1px 10px 0 #b1b1b1;
+  box-shadow: 0 1px 10px 0 #b1b1b1;
+  opacity: 0;
+}
+.min-header .tooltip-about img {
+  float: left;
+  margin: 10px 40px 10px 0;
+}
+.min-header .tooltip-about .text-holder {
+  padding-right: 40px;
+  position: relative;
+}
+.min-header .tooltip-about h2 {
+  font-family: "Brandon Grotesque Medium";
+  font-size: 16px;
+  margin-top: 20px;
+}
+.min-header .tooltip-about p {
+  text-transform: none;
+  font-family: "Brandon Grotesque Regular";
+  margin-top: 20px;
+  line-height: 18px;
+}
+.min-header .tooltip-about em {
+  text-transform: none;
+  color: #ffa1a1;
+  font-style: normal;
+  display: block;
+  font-family: "Brandon Grotesque Regular";
+  text-align: right;
+  margin-top: 12px;
+  margin-right: 20px;
+}
+.min-header .tooltip-about .info {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #b1b1b1;
+}
+.min-header .tooltip-about .info a {
+  color: #b1b1b1;
 }
 .min-header .social {
   width: 25%;
   display: inline-block;
-  height: 60px;
+  height: 120px;
   float: right;
   padding-right: 30px;
   text-align: right;
@@ -161,7 +230,7 @@ button:focus {
   display: inline-block;
   margin-right: -4px;
   list-style: none;
-  line-height: 60px;
+  line-height: 120px;
   margin-left: 10px;
 }
 /**
@@ -288,7 +357,7 @@ button:focus {
   margin-top: 80px;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 36px;
+  font-size: 32px;
 }
 
 .songsCtn {
@@ -340,6 +409,7 @@ button:focus {
 
 .songItem .songName {
   background: #FFF;
+  font-size: 20px;
 }
 
 .trans-all {

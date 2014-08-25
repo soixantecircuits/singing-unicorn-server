@@ -31,8 +31,10 @@ Template.main.rendered = function() {
   });
   floatPapercraft();
 
+  Session.set('tooltipState', false);
+
   var isAtTop, 
-      scrollSpeed = 1,
+      scrollSpeed = 2,
       menuAppearSpeed = 0.5,
       minMenu = $('.min-header');
 
@@ -54,6 +56,30 @@ Template.main.rendered = function() {
     }
   });
 };
+
+Template.main.events({
+  'click #about': function(){
+    var tooltip = $('.tooltip-about'),
+        animSpeed = 0.4;
+
+    if(Session.get('tooltipState')){
+      TweenMax.to(tooltip, animSpeed, {top: "120px", opacity: 0});
+      Session.set('tooltipState', false);
+    } else {
+      TweenMax.to(tooltip, animSpeed, {top: "140px", opacity: 1});
+      Session.set('tooltipState', true);
+    }
+  },
+  'click': function(e){
+    var tooltip = $('.tooltip-about'),
+        animSpeed = 0.4;
+
+    if( $(e.target).closest('.tooltip-about').length==0 && Session.get('tooltipState') && $(e.target).attr('id')!="about"){
+      TweenMax.to(tooltip, animSpeed, {top: "120px", opacity: 0});
+      Session.set('tooltipState', false);      
+    }
+  }
+});
 
 Meteor.startup(function() {
   // initializes all typeahead instances
