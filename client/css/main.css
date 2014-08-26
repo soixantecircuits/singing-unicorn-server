@@ -127,7 +127,7 @@ button:focus {
   left: 0;
   width: 100%;
   height: 120px;
-  z-index: 100;
+  z-index: 666;
   background: url('/img/pattern_back.png') 0 0 repeat;
   font-family: "Brandon Grotesque Regular";
   text-transform: uppercase;
@@ -142,7 +142,7 @@ button:focus {
   text-align: center;
   line-height: 120px;
   display: inline-block;
-  width: 70%;
+  width: 50%;
   margin-right: -4px;
   font-size: 22px;
   letter-spacing: 3px;
@@ -167,7 +167,7 @@ button:focus {
   display: block;
 }
 .min-header .about {
-  width: 15%;
+  width: 25%;
   float: left;
   line-height: 120px;
   padding-left: 3%;
@@ -237,23 +237,43 @@ button:focus {
 .min-header .tooltip-about .info a {
   color: #b1b1b1;
 }
-.min-header .social {
-  width: 15%;
-  display: inline-block;
-  height: 120px;
+.min-header .currentSong {
+  width: 25%;
   float: right;
+  height: 120px;
+  color: #ffa1a1;
+  font-size: 14px;
   padding-right: 3%;
-  text-align: right;
+  line-height: 120px;
+  display: inline-block;
+  font-family: "Brandon Grotesque Bold";
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
-.min-header .social li {
+.min-header .currentSong .playing {
+  color: #ffa1a1;
   display: inline-block;
-  margin-right: -4px;
-  list-style: none;
-  line-height: 120px;
-  margin-left: 10px;
+  width: 200px;
+  height: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.min-header .currentSong .duration {
+  display: inline-block;
+  height: 120px;
+  vertical-align: top;  
+}
+.speaker {
+  display: inline-block;
+  height: 120px;
+  width: 20px;
+  background: url('/img/sound.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  vertical-align: top;
+  margin-right: 6px;
 }
 /**
  * QUERY
@@ -442,6 +462,17 @@ button:focus {
   color: #ffa1a1;
   position: relative;
   z-index: 1
+}
+.songItem.isPlaying:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 20px;
+  left: -30px;
+  background: url('/img/sound.png');
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .songItem.isPlaying:hover .info{
   opacity: 1;

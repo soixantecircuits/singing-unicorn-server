@@ -173,8 +173,8 @@ function scrollAnim(){
   TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
   TweenMax.to($('#header'), scrollSpeed, {top: '-100vh', position: 'absolute', onComplete: function(){
     Session.set('isAtTop', false);
+    $('.searchSection').css('z-index', '200');
   }});
-  TweenMax.to($('.searchSection'), scrollSpeed, {zIndex: 200});
   $('html, body').animate({scrollTop: 0}, scrollSpeed);
 }
 

@@ -26,10 +26,15 @@
 				<p class="info">This project was realised as part of the first <a href="http://soixantecircuits.fr">Soixante circuits hackathon</a></p>
 			</div>
 		</div>
-		<ul class="social">
-			<li>F</li>
-			<li>T</li>
-		</ul>
+		<div class="currentSong">
+			{{#if currentSong}}
+				<span class="speaker"></span>
+				<a href="{{currentLink}}" class="playing">{{currentSong}}</a>
+				<span class="duration">5:16</span>
+			{{else}}
+				<span>No song currently playing.</span>
+			{{/if}}
+		</div>
 	</div>
 	<section class="searchSection" id="searchSection">
 		<div id="searchDiv">

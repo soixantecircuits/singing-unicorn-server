@@ -138,10 +138,11 @@ if (Meteor.isServer) {
       }, function(err, data) {
         console.log(err, data);
         if (err) {
-          console.log(err);
-          console.log(data);
+          //console.log(err);
+          //console.log(data);
         } else {
           _.each(data.items, function(item, index) {
+            //console.log()
             listOfMp3.push({
               name: item.snippet.title,
               id: item.id,
