@@ -141,7 +141,7 @@ if (Meteor.isServer) {
           //console.log(data);
         } else {
           _.each(data.items, function(item, index) {
-            console.log(item);
+            //console.log(item);
             listOfMp3.push({
               name: item.snippet.title,
               id: item.id,
@@ -150,6 +150,40 @@ if (Meteor.isServer) {
           });
           fut.return(listOfMp3);
         }
+      });
+      return fut.wait();
+    },
+    getDuration: function(id){
+      var fut = new Future();
+      Youtube.authenticate({
+        type: 'key',
+        key: Meteor.settings.youtube.key
+      });
+      Youtube.videos.list({
+        "part": "contentDetails",
+        "id": id,
+        "maxResults": 1,
+      }, function(err, data){
+          _.each(data.items, function(item, index) {
+            var duration8601 = item.contentDetails.duration;
+            duration8601=String(duration8601);
+            duration8601 = duration8601.replace("PT", "");
+            var duration = 0;
+
+            if(duration8601.match(/.*?H/)){
+              duration += Number(duration8601.match(/.*?H/)[0].replace('H', ''))*3600;
+              duration8601 = duration8601.replace(/.*?H/, "");
+            }
+            if(duration8601.match(/.*?M/)){
+              duration += Number(duration8601.match(/.*?M/)[0].replace('M', ''))*60;
+              duration8601 = duration8601.replace(/.*?M/, "");
+            }
+            if(duration8601.match(/.*?S/)){
+              duration += Number(duration8601.match(/.*?S/)[0].replace('S', ''));
+              duration8601 = duration8601.replace(/.*?S/, "");
+            }
+            fut.return(duration);
+          });
       });
       return fut.wait();
     }

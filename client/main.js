@@ -137,8 +137,12 @@ Template.main.selected = function(event, suggestion, datasetName) {
 
   var name = $('<p/>', {
     'text': suggestion.name,
-    'data-id': suggestion.id.videoId
+    'data-id': suggestion.id.videoId,
   });
+
+  // Meteor.call('getDuration', suggestion.id.videoId);
+
+  console.log(duration);
 
   if(name){
     $('.addToPlaylist').removeClass('grayscale');
