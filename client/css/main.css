@@ -66,21 +66,44 @@ button:focus {
   color: #ffa1a1;
   font-size: 2.5vh;
   font-weight: 500;
-  margin-bottom: 6vh;
   position: absolute;
-  bottom: 6vh;
+  top: 65vh;
   width: 100%
 }
-.base-click {
-  color: #ffa1a1;
-  font-size: 3vh;
-  font-weight: 500;
-  margin-bottom: 6vh;
+.base-link {
+  color: #f8d268;
+  font-family: "Brandon Grotesque Bold";
+  font-size: 2vh;
   position: absolute;
-  bottom: 0;
+  bottom: 5vh;
   width: 100%;
-  display: block;
-  text-decoration: none;
+  text-align: center; 
+}
+.base-link button {
+  background: #f8d268;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  font-size: 2.2vh;
+  font-family: "Brandon Grotesque Bold";
+  text-transform: uppercase;
+  padding: 0 10px;
+  margin: 0.7vh auto;
+  height: 4vh;
+  cursor: pointer;
+  -webkit-transition: background 400ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -moz-transition: background 400ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -ms-transition: background 400ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -o-transition: background 400ms cubic-bezier(0.39, 0.575, 0.565, 1);
+   transition: background 400ms cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.base-link button:hover {
+  background: #f1bb4d;
+}
+.base-link button span {
+  position: relative;
+  top: 1px;
 }
 .obj1 {
   left: 80%;
@@ -242,6 +265,7 @@ button:focus {
   width: 100%;
   margin-top: 120px;
   text-align: center;
+  position: relative;
 }
 
 .typeahead {
@@ -350,8 +374,8 @@ button:focus {
  * PLAYLIST
  */
 .playlistSection {
-  text-align: center;
-  font-family: "Brandon Grotesque Regular"
+  font-family: "Brandon Grotesque Regular";
+  margin-top: 3vh;
 }
 
 .playlistSection h1 {
@@ -359,12 +383,43 @@ button:focus {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 32px;
+  width: 50%;
+  margin: auto;
+  padding: 0 6%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
-
+.playlistSection h2 {
+  width: 50%;
+  margin: auto;
+  padding: 0 6%;
+  color: #cfcfcf;
+  font-size: 20px;
+  position: relative;
+  text-transform: uppercase;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.playlistSection h2 strong {
+  font-size: 30px;
+}
+.playlistSection h2 .total-duration {
+  position: absolute;
+  top: -20px;
+  left: 81%;
+  text-transform: none;
+  font-size: 26px;
+}
 .songsCtn {
   width: 50%;
   margin: auto;
   list-style: none;
+  padding: 0 6%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */  
 }
 .actually-playing {
   color: #ffa1a1;
@@ -373,8 +428,9 @@ button:focus {
   text-transform: uppercase;
   font-size: 20px;
   padding-top: 10px 15px;
-  margin: 30px auto;
-  width: inherit;
+  margin: 30px 0;
+  width: 100%;
+  position: relative;
 }
 
 .songItem.notPlaying {
@@ -384,7 +440,6 @@ button:focus {
 
 .songItem.isPlaying {
   color: #ffa1a1;
-  border: 2px solid #ffa1a1;
   position: relative;
   z-index: 1
 }
@@ -411,10 +466,33 @@ button:focus {
 .songItem .songName {
   background: #FFF;
   font-size: 20px;
+  width: 80%;
+}
+.songItem.isPlaying .songName {
+  border: 2px solid #ffa1a1;
+  padding: 5px 10px;
 }
 .songItem .songName a {
   text-decoration: none;
   color: #ffa1a1;
+}
+.songItem .duration {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 35px;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  background: #eeeeee;
+  border-radius: 3px;
+  color: #272727;
+  text-align: center;
+  font-family: "Brandon Grotesque Medium";
+}
+.songItem.isPlaying .duration {
+  background: #ffa1a1;
 }
 .trans-all {
   -webkit-transition: all 0.3s ease;
@@ -472,12 +550,7 @@ button:focus {
   }
   .baseline {
     font-size: 2.3vh;
-    bottom: 10vh;
-  }
-  .base-click {
-    font-size: 2.8vh;
-    bottom: 4vh;
-    margin-bottom: 4vh;
+    top: 70vh;
   }
   .min-header h1 {
     font-size: 18px;
@@ -524,10 +597,11 @@ button:focus {
   .baseline {
     font-size: 14px;
   }
-  .base-click {
-    font-size: 16px;
-    padding: 0 10px;
-    margin-bottom: 0;
+  .base-link {
+    font-size: 12px;
+  }
+  .base-link button {
+    font-size: 14px;
   }
   .min-header h1 {
     position: relative;

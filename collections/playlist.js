@@ -34,6 +34,9 @@ if (Meteor.isServer) {
         }, {
           $set: {
             playing: true
+          },
+          $inc: {
+            played: 1
           }
         }, {
           multi: false,

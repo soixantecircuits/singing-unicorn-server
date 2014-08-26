@@ -20,6 +20,22 @@ Template.main.helpers({
   currentLink: function(){
     var song = Playlist.findOne({playing: true});
     return "http://www.youtube.com/watch?v="+song.videoId;
+  },
+  songsPlayed: function(){
+    var songsPlayed = 0,
+        playlist = Playlist.find().fetch();
+
+    for(i=0; i<playlist.length; i++){
+      var item = playlist[i].played;
+      if(item!=undefined && typeof item == "number"){
+        songsPlayed+=item;
+      }
+    }
+
+    return songsPlayed;
+  },
+  totalDuration: function(){
+    return "6h18min";
   }
 });
 
@@ -78,9 +94,6 @@ Template.main.events({
       Session.set('tooltipState', false);      
     }
   },
-  'click #base-click': function(){
-    scrollAnim();
-  }
 });
 
 Meteor.startup(function() {
@@ -122,6 +135,7 @@ Template.main.selected = function(event, suggestion, datasetName) {
         videoId: $('#songToAdd').data('id'),
         name: $('#songToAdd').data('name'),
         playing: false,
+        played: 0,
         dateAdded: new Date()
       });
       $('#songToAdd').empty();
@@ -160,6 +174,7 @@ function scrollAnim(){
   TweenMax.to($('#header'), scrollSpeed, {top: '-100vh', position: 'absolute', onComplete: function(){
     Session.set('isAtTop', false);
   }});
+  TweenMax.to($('.searchSection'), scrollSpeed, {zIndex: 200});
   $('html, body').animate({scrollTop: 0}, scrollSpeed);
 }
 

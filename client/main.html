@@ -4,7 +4,11 @@
 			<h1>Singing Unicorn</h1>
 		</div>
 		<p class="baseline">Let the pink fluffy unicorns dancing on rainbows magic begin</p>
-		<a href="#" class="base-click" id="base-click">Just click here and come at our office !</a>
+		<p class="base-link">
+			Check Out <br>
+			<a href="http://soixantecircuits.fr" target="_blank"><button><span>Soixante circuits.fr</span></button></a><br>
+			to start playing a song at our office
+		</p>
 		<div class="obj obj1"></div>
 		<div class="obj obj2"></div>
 	</header><!-- /header -->
@@ -37,17 +41,10 @@
 		<div class="obj obj3"></div>
 	</section>
 	<section class="playlistSection pattern">
-		<h1>Currently Playing</h1>
-		<ul class="songsCtn">
-			<li class="songItem trans-all">
-				{{#if currentSong}}
-					<h3 class="songName actually-playing"><a href="{{currentLink}}">{{currentSong}}</a></h3>
-				{{else}}
-					<h3 class="songName">No song is currently playing</h3>
-				{{/if}}
-			</li>
-		</ul>
 		<h1>Playlist</h1>
+		<h2><strong>{{songsPlayed}}</strong> songs played
+			<span class="total-duration">{{totalDuration}}</span>
+		</h2>
 		<ul class='songsCtn'>
 			{{#each invertLoop songs}}
 				{{> songItem}}
@@ -61,8 +58,9 @@
 <template name="songItem">
   <li class="songItem {{isPlaying this.playing}} trans-all">
   	<h3 class="songName">{{name}}</h3>
-  	{{#if this.playing}}
+  	<div class="duration">5:16</div>
+<!--   	{{#if this.playing}}
   		<span class="info">This song is currently playing in our office :)</span>
-  	{{/if}}
+  	{{/if}} -->
   </li>
 </template>
