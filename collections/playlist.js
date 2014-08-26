@@ -136,13 +136,13 @@ if (Meteor.isServer) {
         "q": query,
 
       }, function(err, data) {
-        console.log(err, data);
+        //console.log(err, data);
         if (err) {
           //console.log(err);
           //console.log(data);
         } else {
           _.each(data.items, function(item, index) {
-            //console.log()
+            console.log(item);
             listOfMp3.push({
               name: item.snippet.title,
               id: item.id,

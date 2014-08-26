@@ -70,6 +70,16 @@ Template.main.rendered = function() {
     var tooltipHeight = $(window).height() -180;
     $('.tooltip-about').height(tooltipHeight);
   }
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) {
+    var tooltip = $('.tooltip-about'),
+        animSpeed = 0.4;
+    if(Session.get('tooltipState')){
+      TweenMax.to(tooltip, animSpeed, {top: "120px", opacity: 0});
+      Session.set('tooltipState', false);      
+    }
+    }   // esc
+  });
 };
 
 Template.main.events({

@@ -72,7 +72,7 @@ button:focus {
 }
 .base-link {
   color: #f8d268;
-  font-family: "Brandon Grotesque Bold";
+  font-family: "Brandon Grotesque Medium";
   font-size: 2vh;
   position: absolute;
   bottom: 5vh;
@@ -86,7 +86,7 @@ button:focus {
   outline: none;
   border-radius: 15px;
   font-size: 2.2vh;
-  font-family: "Brandon Grotesque Bold";
+  font-family: "Brandon Grotesque Medium";
   text-transform: uppercase;
   padding: 0 10px;
   margin: 0.7vh auto;
@@ -173,7 +173,7 @@ button:focus {
   padding-left: 3%;
   font-size: 21px;
   color: #ffa1a1;
-  font-family: "Brandon Grotesque Bold";
+  font-family: "Brandon Grotesque Medium";
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
@@ -246,7 +246,7 @@ button:focus {
   padding-right: 3%;
   line-height: 120px;
   display: inline-block;
-  font-family: "Brandon Grotesque Bold";
+  font-family: "Brandon Grotesque Medium";
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
@@ -511,7 +511,7 @@ button:focus {
   display: block;
   position: absolute;
   right: 0;
-  top: 5px;
+  top: -2px;
   width: 35px;
   height: 20px;
   font-size: 14px;
