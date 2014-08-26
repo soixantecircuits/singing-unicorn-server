@@ -134,7 +134,6 @@ if (Meteor.isServer) {
         "part": "id, snippet",
         "maxResults": 50,
         "q": query,
-
       }, function(err, data) {
         //console.log(err, data);
         if (err) {

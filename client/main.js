@@ -104,6 +104,11 @@ Template.main.events({
       Session.set('tooltipState', false);      
     }
   },
+  'click .arrow': function(){
+    if(Session.get('isAtTop')){
+      scrollAnim();
+    }
+  }
 });
 
 Meteor.startup(function() {
