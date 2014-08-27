@@ -15,7 +15,8 @@ Template.main.helpers({
   },
   currentSong: function(){
     var song = Playlist.findOne({playing: true});
-    return song.name;
+    if(song!=undefined)
+      return song.name;
   },
   currentDuration: function(){
     var duration = Playlist.findOne({playing: true}).duration;
