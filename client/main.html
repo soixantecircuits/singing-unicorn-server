@@ -13,28 +13,35 @@
 	<div class="obj obj1"></div>
 	<div class="obj obj2"></div>
 	</header><!-- /header -->
-	<div class="min-header">
-		<h1>Singing <span class="unicorn-min"><a href="javascript:window.location.reload()"></a></span> Unicorn</h1>
-		<span class="about"><span id="about">About</span></span>
-		<div class="tooltip-about">
-			<img src="/img/unicorn_about.png" alt="Unicorn">
-			<div class="text-holder">
-				<h2>Singing Unicorn</h2>
-				<p>Is a real unicorn installed on the wall of our officies. <br>
-				Pick a song, add it to the unicorn list, and unicorn will play it for us!</p>
-				<p>Have fun and let the magic begin.</p>
-				<em>Soixante circuits team</em>
-				<p class="info">This project was realised as part of the first <a href="http://soixantecircuits.fr">Soixante circuits hackathon</a></p>
-			</div>
+	<div class="fixed-bar">
+		<div class="social-bar">
+			<p>Hello stranger! Share the Singing Unicorn magic around
+			<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="singingunicorn.meteor.com" data-via="Soixanteci" data-text="Here is some singing unicorn magic for you all. Spread the love! #singingunicorn singingunicorn.meteor.com  via @Soixanteci">Tweet</a>
+			</p>
 		</div>
-		<div class="currentSong">
-			{{#if currentSong}}
-				<span class="speaker"></span>
-				<a href="{{currentLink}}" target="_blank" class="playing">{{currentSong}}</a>
-				<span class="duration">{{currentDuration}}</span>
-			{{else}}
-				<span>No song currently playing.</span>
-			{{/if}}
+		<div class="min-header">
+			<h1>Singing <span class="unicorn-min"><a href="javascript:window.location.reload()"></a></span> Unicorn</h1>
+			<span class="about"><span id="about">About</span></span>
+			<div class="tooltip-about">
+				<img src="/img/unicorn_about.png" alt="Unicorn">
+				<div class="text-holder">
+					<h2>Singing Unicorn</h2>
+					<p>Is a real unicorn installed on the wall of our officies. <br>
+					Pick a song, add it to the unicorn list, and unicorn will play it for us!</p>
+					<p>Have fun and let the magic begin.</p>
+					<em>Soixante circuits team</em>
+					<p class="info">This project was realised as part of the first <a href="http://soixantecircuits.fr">Soixante circuits hackathon</a></p>
+				</div>
+			</div>
+			<div class="currentSong">
+				{{#if currentSong}}
+					<span class="speaker"></span>
+					<a href="{{currentLink}}" target="_blank" class="playing">{{currentSong}}</a>
+					<span class="duration">{{currentDuration}}</span>
+				{{else}}
+					<span>No song currently playing.</span>
+				{{/if}}
+			</div>
 		</div>
 	</div>
 	<section class="searchSection" id="searchSection">

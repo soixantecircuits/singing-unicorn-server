@@ -245,13 +245,14 @@ function floatSinglePaper(obj, position){
 }
 
 function scrollAnim(){
-  var scrollSpeed = 0.7,
-      menuAppearSpeed = 0.7,
-      minMenu = $('.min-header');
+  var scrollSpeed = 0.6,
+      menuAppearSpeed = 0.6,
+      minMenu = $('.fixed-bar');
 
-  var newTop = ($(window).height() - 120)*(-1); 
+  var newTop = ($(window).height() - minMenu.height())*(-1); 
 
   TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
+  $('.searchSection').css('margin-top', minMenu.height());
   TweenMax.to($('#header'), scrollSpeed, {top: newTop, position: 'absolute', onComplete: function(){
     Session.set('isAtTop', false);
     $('.searchSection').css('z-index', '4');
@@ -268,3 +269,4 @@ function gaussianNumber(mean, stdev) {
 function formatDistance(nbr){
   return nbr+"px";
 }
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
