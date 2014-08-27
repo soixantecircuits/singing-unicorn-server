@@ -276,6 +276,7 @@ function scrollAnim(){
       TweenMax.to($('#header'), menuAppearSpeed, {top: ($(window).height()-minMenu.height())*(-1)})
       TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
       TweenMax.to($('.searchSection'), menuAppearSpeed, {'margin-top': minMenu.height()});
+      TweenMax.to($('.min-header > hr'), menuAppearSpeed, {bottom: "-6px"});
     }, 400);
   }});
   $('html, body').animate({scrollTop: 0}, scrollSpeed);
