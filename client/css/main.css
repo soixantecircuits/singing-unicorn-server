@@ -200,7 +200,7 @@ button:focus {
 .min-header hr {
   display: block;
   width: 100%;
-  height: 2px;
+  height: 1px;
   background: white;
   border: none;
   outline: none;
@@ -370,7 +370,19 @@ footer {
   text-align: center;
   position: relative;
 }
-
+.nice-message {
+  font-size: 16px;
+  font-family: "Brandon Grotesque Regular";
+  color: #272727;
+  position: absolute;
+  width: 100%;
+  bottom: 75px;
+  opacity: 0;
+  display: none;
+}
+.nice-message a {
+  color: #ffa1a1;
+}
 .typeahead {
   width: 526px; /* 550 - 2*12 padding */
   height: 30px;
@@ -594,9 +606,10 @@ footer {
 .songItem .duration {
   display: block;
   position: absolute;
-  right: 0;
+  left: 100%;
   top: -2px;
-  width: 35px;
+  padding: 0 3px;
+  min-width: 35px;
   height: 20px;
   font-size: 14px;
   line-height: 20px;

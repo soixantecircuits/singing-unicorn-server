@@ -161,20 +161,23 @@ Template.main.events({
     TweenMax.to($('#header'), menuAppearSpeed, {top: newTop})
     TweenMax.to(minMenu, menuAppearSpeed, {top: $('.social-bar').height()*(-1)});
     TweenMax.to($('.searchSection'), menuAppearSpeed, {'margin-top': minMenu.height()-$('.social-bar').height()});
+  },
+  'click input.addToPlaylist': function() {
+    // template data, if any, is available in 'this'
+    if (typeof console !== 'undefined')
+      console.log("You pressed the button");
+  },
+  'focus #songToAdd': function(){
+    TweenMax.to($('.addToPlaylist'), 0.4, {opacity: 1, scale: 1, transformOrigin: "center"});
+    TweenMax.to($('.nice-message'), 0.4, {opacity: 0, onComplete: function(){
+      $('.nice-message').css('display', 'none');
+    }});
   }
 });
 
 Meteor.startup(function() {
   // initializes all typeahead instances
   Meteor.typeahead.inject();
-});
-
-Template.main.events({
-  'click input.addToPlaylist': function() {
-    // template data, if any, is available in 'this'
-    if (typeof console !== 'undefined')
-      console.log("You pressed the button");
-  }
 });
 
 Template.songItem.helpers({
@@ -186,19 +189,28 @@ Template.songItem.helpers({
     var durationFormated="";
 
     if(Math.floor(duration/3600)>0){
+      if(Math.floor(duration/3600)<10){
+        durationFormated+="0";
+      }
       durationFormated += Math.floor(duration/3600)+":";
       duration -= Math.floor(duration/3600)*3600;
     }
     if(Math.floor(duration/60)>0){
+      if(Math.floor(duration/60)<10){
+        durationFormated+="0";
+      }
       durationFormated += Math.floor(duration/60)+":";
       duration -= Math.floor(duration/60)*60;
     } else {
-      durationFormated+="0:";
+      durationFormated+="00:";
     }
     if(duration>0){
+      if(duration<10){
+        durationFormated+="0";
+      }
       durationFormated+=duration;
     } else {
-      durationFormated+="0";
+      durationFormated+="00";
     }
     return durationFormated;
   }
@@ -221,7 +233,7 @@ Template.main.selected = function(event, suggestion, datasetName) {
     }
 
     $(document).one('click', '.addToPlaylist', function(event) {
-      if (name) {
+      if (name && $('#songToAdd').data('name')!=="") {
         Playlist.insert({
           videoId: $('#songToAdd').data('id'),
           name: $('#songToAdd').data('name'),
@@ -231,74 +243,13 @@ Template.main.selected = function(event, suggestion, datasetName) {
           dateAdded: new Date()
         });
         $('#songToAdd').empty();
+        TweenMax.to($('.addToPlaylist'), 0.4, {opacity: 0, scale: 0.9, transformOrigin: "center"});
         $('.addToPlaylist').addClass('grayscale');
+        $('.nice-message').css('display', 'block');
+        TweenMax.to($('.nice-message'), 0.4, {opacity: 1});
       } else {
         console.log('no name');
       }
     });
   });
-
 }
-function floatPapercraft(){
-  var papercrafts = $('.obj');
-  for(i=1; i<=papercrafts.length; i++){
-    var paper = $('.obj'+i),
-        position = paper.position();
-    floatSinglePaper(paper, position);
-  }
-}
-
-function floatSinglePaper(obj, position){
-  var topMove = gaussianNumber(0, 8) +position.top;
-  var leftMove = gaussianNumber(0, 8) + position.left;
-  topMove = formatDistance(topMove); 
-  leftMove = formatDistance(leftMove);
-
-  TweenMax.to(obj, 2, {top: topMove, left: leftMove, ease: Quad.easeOut, onComplete: function(){
-    floatSinglePaper(obj, position);
-  }});
-}
-
-function scrollAnim(){
-  var scrollSpeed = 0.6,
-      menuAppearSpeed = 0.6,
-      minMenu = $('.fixed-bar');
-
-  console.log(minMenu.height()-$('.social-bar').height());
-  var newTop = ($(window).height() - (minMenu.height()-$('.social-bar').height()) )*(-1);
-
-  TweenMax.to(minMenu, menuAppearSpeed, {top: $('.social-bar').height()*(-1)});
-  $('.searchSection').css('margin-top', minMenu.height()-$('.social-bar').height());
-  TweenMax.to($('#header'), scrollSpeed, {top: newTop, position: 'absolute', onComplete: function(){
-    Session.set('isAtTop', false);
-    $('.searchSection').css('z-index', '4');
-    setTimeout(function(){
-      TweenMax.to($('#header'), menuAppearSpeed, {top: ($(window).height()-minMenu.height())*(-1)})
-      TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
-      TweenMax.to($('.searchSection'), menuAppearSpeed, {'margin-top': minMenu.height()});
-      TweenMax.to($('.min-header > hr'), menuAppearSpeed, {bottom: "-6px"});
-    }, 400);
-  }});
-  $('html, body').animate({scrollTop: 0}, scrollSpeed);
-}
-
-function sndNumber() {
-  return (Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1);
-}
-function gaussianNumber(mean, stdev) {
-  return sndNumber()*stdev+mean;
-}
-function formatDistance(nbr){
-  return nbr+"px";
-}
-// Twitter
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-// Facebook
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/fr_CA/sdk.js#xfbml=1&appId=782323101787355&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
