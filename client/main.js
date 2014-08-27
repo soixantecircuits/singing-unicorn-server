@@ -113,6 +113,11 @@ Template.main.rendered = function() {
     }
     }   // esc
   });
+  var arrowTl = new TimelineMax({repeat: -1}),
+      arrow = $('.arrow'),
+      arrowSpeed = 0.7;
+  arrowTl.add(TweenMax.to(arrow, arrowSpeed, {top: "75.5vh", ease:Quad.easeOut}));
+  arrowTl.add(TweenMax.to(arrow, arrowSpeed, {top: "75vh", ease:Quad.easeOut}));
 };
 
 Template.main.events({
@@ -269,4 +274,6 @@ function gaussianNumber(mean, stdev) {
 function formatDistance(nbr){
   return nbr+"px";
 }
+// Twitter
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
