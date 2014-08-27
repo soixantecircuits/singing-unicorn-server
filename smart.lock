@@ -4,13 +4,16 @@
     "basePackages": {
       "typeahead": {},
       "npm": {},
-      "houston": {}
+      "houston": {
+        "git": "git@github.com:gterrono/houston.git",
+        "branch": "master"
+      }
     },
     "packages": {
       "typeahead": {
         "git": "https://github.com/sergeyt/meteor-typeahead.git",
-        "tag": "v0.0.11",
-        "commit": "b97b4a92edeceb8f76aa8e6eb0f71252b34d4de3"
+        "tag": "v0.0.12",
+        "commit": "1f5674a073489d09755022dd83b9fcc01fd8fcec"
       },
       "npm": {
         "git": "https://github.com/arunoda/meteor-npm.git",
@@ -18,9 +21,9 @@
         "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
       },
       "houston": {
-        "git": "https://github.com/gterrono/houston.git",
-        "tag": "v1.0.7",
-        "commit": "a27e9e42d03764f09a6681a98945787fe1f6303d"
+        "git": "git@github.com:gterrono/houston.git",
+        "branch": "master",
+        "commit": "43ce6b667f75b82395fe057541a34de414e4501f"
       },
       "paginated-subscription": {
         "git": "https://github.com/tmeasday/meteor-paginated-subscription.git",
@@ -29,18 +32,33 @@
       },
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
-        "tag": "v2.0.3",
-        "commit": "23c1145472a710d5c93fa4beaca4e576caeb2f24"
+        "tag": "v2.0.4",
+        "commit": "f7b1e12a7caff1283cdb3671a393c182d0ae9862"
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.8.1",
-        "commit": "74e867557fd9cb81173e048e5f81cf4a0a1160a8"
+        "tag": "v0.8.2",
+        "commit": "05415a8891ea87a00fb1e2388585f2ca5a38e0da"
+      },
+      "bootstrap-flatly": {
+        "git": "https://github.com/grokbot/meteor-bootstrap-flatly",
+        "branch": "font-awesome",
+        "commit": "236463a6dbfb0bc07cbf81d8342dc8d6e9a06fdf"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
         "tag": "v0.2.0",
         "commit": "4a2d53e35ba036b0c189c7ceca34be494d4c6c97"
+      },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.0.3",
+        "commit": "61e9361384347547ae144f8228faa4deffda23db"
+      },
+      "fontawesome4": {
+        "git": "https://github.com/chrismbeckett/meteor-fontawesome4.git",
+        "tag": "v1.1.0",
+        "commit": "7d2cb9119b7981b8f854b7051d302d4842311249"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

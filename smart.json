@@ -2,6 +2,8 @@
   "packages": {
     "typeahead": {},
     "npm": {},
-    "houston": {}
+    "houston": {
+      "git":"git@github.com:gterrono/houston.git"
+    }
   }
 }

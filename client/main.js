@@ -61,7 +61,10 @@ Template.main.helpers({
         durationFormated = "";
 
     for(i=0; i<playlist.length; i++){
-      totalDuration += playlist[i].duration;
+      if(playlist[i].duration==undefined)
+        totalDuration+=0;
+      else
+        totalDuration += playlist[i].duration;
     }
     if(Math.floor(totalDuration/3600)>0){
       durationFormated += Math.floor(totalDuration/3600)+"h ";
