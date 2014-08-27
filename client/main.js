@@ -35,7 +35,18 @@ Template.main.helpers({
     return songsPlayed;
   },
   totalDuration: function(){
-    return "6h18min";
+    var playlist = Playlist.find().fetch(),
+        totalDuration = 0,
+        durationFormated = "";
+
+    for(i=0; i<playlist.length; i++){
+      totalDuration += playlist[i].duration;
+    }
+    if(Math.floor(totalDuration/3600)>0){
+      durationFormated += Math.floor(totalDuration/3600)+"h ";
+    }
+    durationFormated += Math.round(totalDuration/60)+"min";
+    return durationFormated;
   }
 });
 
@@ -88,9 +99,12 @@ Template.main.events({
         animSpeed = 0.4;
 
     if(Session.get('tooltipState')){
-      TweenMax.to(tooltip, animSpeed, {top: "120px", opacity: 0});
+      TweenMax.to(tooltip, animSpeed, {top: "120px", opacity: 0, onComplete: function(){
+        tooltip.css('display', 'none');
+      }});
       Session.set('tooltipState', false);
     } else {
+      tooltip.css('display', 'block');
       TweenMax.to(tooltip, animSpeed, {top: "140px", opacity: 1});
       Session.set('tooltipState', true);
     }
@@ -100,7 +114,9 @@ Template.main.events({
         animSpeed = 0.4;
 
     if( $(e.target).closest('.tooltip-about').length==0 && Session.get('tooltipState') && $(e.target).attr('id')!="about"){
-      TweenMax.to(tooltip, animSpeed, {top: "120px", opacity: 0});
+      TweenMax.to(tooltip, animSpeed, {top: "120px", opacity: 0, onComplete: function(){
+        tooltip.css('display', 'none');
+      }});
       Session.set('tooltipState', false);      
     }
   },
@@ -140,29 +156,30 @@ Template.main.selected = function(event, suggestion, datasetName) {
     'data-id': suggestion.id.videoId,
   });
 
-  // Meteor.call('getDuration', suggestion.id.videoId);
-
-  console.log(duration);
-
-  if(name){
-    $('.addToPlaylist').removeClass('grayscale');
-  }
-
-  $(document).one('click', '.addToPlaylist', function(event) {
-    if (name) {
-      Playlist.insert({
-        videoId: $('#songToAdd').data('id'),
-        name: $('#songToAdd').data('name'),
-        playing: false,
-        played: 0,
-        dateAdded: new Date()
-      });
-      $('#songToAdd').empty();
-      $('.addToPlaylist').addClass('grayscale');
-    } else {
-      console.log('no name');
+  var duration;
+  Meteor.call('getDuration', suggestion.id.videoId, function(err, data){
+    if(name){
+      $('.addToPlaylist').removeClass('grayscale');
     }
+
+    $(document).one('click', '.addToPlaylist', function(event) {
+      if (name) {
+        Playlist.insert({
+          videoId: $('#songToAdd').data('id'),
+          name: $('#songToAdd').data('name'),
+          playing: false,
+          played: 0,
+          duration: data,
+          dateAdded: new Date()
+        });
+        $('#songToAdd').empty();
+        $('.addToPlaylist').addClass('grayscale');
+      } else {
+        console.log('no name');
+      }
+    });
   });
+
 }
 function floatPapercraft(){
   var papercrafts = $('.obj');

@@ -210,6 +210,7 @@ button:focus {
   -webkit-box-shadow: 0 1px 10px 0 #b1b1b1;
   box-shadow: 0 1px 10px 0 #b1b1b1;
   opacity: 0;
+  display: none;
 }
 .min-header .tooltip-about img {
   float: left;
