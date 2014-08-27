@@ -44,6 +44,7 @@ Template.main.helpers({
     }
     if(Math.floor(totalDuration/3600)>0){
       durationFormated += Math.floor(totalDuration/3600)+"h ";
+      totalDuration-=Math.floor(totalDuration/3600)*3600;
     }
     durationFormated += Math.round(totalDuration/60)+"min";
     return durationFormated;
@@ -143,6 +144,27 @@ Template.main.events({
 Template.songItem.helpers({
   isPlaying: function(state){
     return state ? 'isPlaying' : 'notPlaying'
+  },
+  formattedDuration: function(data){
+    var duration = data;
+    var durationFormated="";
+
+    if(Math.floor(duration/3600)>0){
+      durationFormated += Math.floor(duration/3600)+":";
+      duration -= Math.floor(duration/3600)*3600;
+    }
+    if(Math.floor(duration/60)>0){
+      durationFormated += Math.floor(duration/60)+":";
+      duration -= Math.floor(duration/60)*60;
+    } else {
+      durationFormated+="0:";
+    }
+    if(duration>0){
+      durationFormated+=duration;
+    } else {
+      durationFormated+="0";
+    }
+    return durationFormated;
   }
 });
 

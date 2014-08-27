@@ -64,9 +64,6 @@
 <template name="songItem">
   <li class="songItem {{isPlaying this.playing}} trans-all">
   	<h3 class="songName">{{name}}</h3>
-  	<div class="duration">{{duration}}</div>
-<!--   	{{#if this.playing}}
-  		<span class="info">This song is currently playing in our office :)</span>
-  	{{/if}} -->
+  	<div class="duration">{{formattedDuration this.duration}}</div>
   </li>
 </template>
