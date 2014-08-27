@@ -510,6 +510,7 @@ button:focus {
   background: #FFF;
   font-size: 20px;
   width: 80%;
+  border: 2px solid rgba(255,255,255,0);
 }
 .songItem.isPlaying .songName {
   border: 2px solid #ffa1a1;

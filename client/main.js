@@ -17,6 +17,27 @@ Template.main.helpers({
     var song = Playlist.findOne({playing: true});
     return song.name;
   },
+  currentDuration: function(){
+    var duration = Playlist.findOne({playing: true}).duration;
+    var durationFormated="";
+
+    if(Math.floor(duration/3600)>0){
+      durationFormated += Math.floor(duration/3600)+":";
+      duration -= Math.floor(duration/3600)*3600;
+    }
+    if(Math.floor(duration/60)>0){
+      durationFormated += Math.floor(duration/60)+":";
+      duration -= Math.floor(duration/60)*60;
+    } else {
+      durationFormated+="0:";
+    }
+    if(duration>0){
+      durationFormated+=duration;
+    } else {
+      durationFormated+="0";
+    }
+    return durationFormated;
+  },
   currentLink: function(){
     var song = Playlist.findOne({playing: true});
     return "http://www.youtube.com/watch?v="+song.videoId;
