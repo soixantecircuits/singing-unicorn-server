@@ -249,10 +249,12 @@ function scrollAnim(){
       menuAppearSpeed = 0.7,
       minMenu = $('.min-header');
 
+  var newTop = ($(window).height() - 120)*(-1); 
+
   TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
-  TweenMax.to($('#header'), scrollSpeed, {top: '-100vh', position: 'absolute', onComplete: function(){
+  TweenMax.to($('#header'), scrollSpeed, {top: newTop, position: 'absolute', onComplete: function(){
     Session.set('isAtTop', false);
-    $('.searchSection').css('z-index', '200');
+    $('.searchSection').css('z-index', '4');
   }});
   $('html, body').animate({scrollTop: 0}, scrollSpeed);
 }
