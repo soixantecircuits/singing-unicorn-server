@@ -151,6 +151,16 @@ Template.main.events({
     if(Session.get('isAtTop')){
       scrollAnim();
     }
+  },
+  'click .close-social': function(){
+    var scrollSpeed = 0.6,
+        menuAppearSpeed = 0.6,
+        minMenu = $('.fixed-bar');
+
+    var newTop = ($(window).height() - (minMenu.height()-$('.social-bar').height()) )*(-1);
+    TweenMax.to($('#header'), menuAppearSpeed, {top: newTop})
+    TweenMax.to(minMenu, menuAppearSpeed, {top: $('.social-bar').height()*(-1)});
+    TweenMax.to($('.searchSection'), menuAppearSpeed, {'margin-top': minMenu.height()-$('.social-bar').height()});
   }
 });
 
@@ -254,13 +264,19 @@ function scrollAnim(){
       menuAppearSpeed = 0.6,
       minMenu = $('.fixed-bar');
 
-  var newTop = ($(window).height() - minMenu.height())*(-1); 
+  console.log(minMenu.height()-$('.social-bar').height());
+  var newTop = ($(window).height() - (minMenu.height()-$('.social-bar').height()) )*(-1);
 
-  TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
-  $('.searchSection').css('margin-top', minMenu.height());
+  TweenMax.to(minMenu, menuAppearSpeed, {top: $('.social-bar').height()*(-1)});
+  $('.searchSection').css('margin-top', minMenu.height()-$('.social-bar').height());
   TweenMax.to($('#header'), scrollSpeed, {top: newTop, position: 'absolute', onComplete: function(){
     Session.set('isAtTop', false);
     $('.searchSection').css('z-index', '4');
+    setTimeout(function(){
+      TweenMax.to($('#header'), menuAppearSpeed, {top: ($(window).height()-minMenu.height())*(-1)})
+      TweenMax.to(minMenu, menuAppearSpeed, {top: 0});
+      TweenMax.to($('.searchSection'), menuAppearSpeed, {'margin-top': minMenu.height()});
+    }, 400);
   }});
   $('html, body').animate({scrollTop: 0}, scrollSpeed);
 }
