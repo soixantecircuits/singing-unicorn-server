@@ -4,6 +4,7 @@
     "npm": {},
     "houston": {
       "git": "git@github.com:gterrono/houston.git"
-    }
+    },
+    "headly": {}
   }
 }

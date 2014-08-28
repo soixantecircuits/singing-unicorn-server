@@ -7,7 +7,8 @@
       "houston": {
         "git": "git@github.com:gterrono/houston.git",
         "branch": "master"
-      }
+      },
+      "headly": {}
     },
     "packages": {
       "typeahead": {
@@ -24,6 +25,11 @@
         "git": "git@github.com:gterrono/houston.git",
         "branch": "master",
         "commit": "43ce6b667f75b82395fe057541a34de414e4501f"
+      },
+      "headly": {
+        "git": "https://github.com/ayal/headly",
+        "tag": "v0.1.1",
+        "commit": "f14effc81eab10efb876664bc010a5341ac95358"
       },
       "paginated-subscription": {
         "git": "https://github.com/tmeasday/meteor-paginated-subscription.git",
