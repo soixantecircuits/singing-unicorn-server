@@ -2,7 +2,7 @@ UI.registerHelper("log", function(context) {
   return console.log(context);
 });
 
-Meteor.subscribe('songs');
+Meteor.subscribe('playlist');
 
 Template.main.helpers({
   songs: function() {
@@ -84,8 +84,16 @@ Template.main.rendered = function() {
       menu.removeClass('loading');
     }
   });
-  floatPapercraft();
 
+  if($(window).width()>568){
+    floatPapercraft();
+    $(window).scroll(function(event) {
+      // If top of page
+      if(Session.get('isAtTop')){
+        scrollAnim();
+      }
+    });
+  }
   Session.set('tooltipState', false);
 
   if($(window).scrollTop()==0){
@@ -95,15 +103,10 @@ Template.main.rendered = function() {
     Session.set('isAtTop', false);
   }
 
-  $(window).scroll(function(event) {
-    // If top of page
-    if(Session.get('isAtTop')){
-      scrollAnim();
-    }
-  });
   if($(window).width()<568){
-    var tooltipHeight = $(window).height() -180;
+    var tooltipHeight = $(window).height() -170;
     $('.tooltip-about').height(tooltipHeight);
+    $('.main-header').height($(window).height());
   }
   $(document).keyup(function(e) {
     if (e.keyCode == 27) {

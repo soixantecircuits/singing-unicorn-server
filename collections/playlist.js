@@ -4,16 +4,13 @@ Playlist.deny({
   insert: function(){
     return true;
   },
-  update: function(){
-    return true;
-  }
 });
 
 if (Meteor.isServer) {
 
-  Meteor.publish('songs', function(){
+  Meteor.publish('playlist', function(){
     return Playlist.find();
-  })
+  });
 
   Future = Meteor.require("fibers/future");
   cheerio = Meteor.require('cheerio');
@@ -37,7 +34,7 @@ if (Meteor.isServer) {
         }
       }, {
         multi: true,
-        upsert: true
+        upsert: false
       }, function(err, docs) {
         if (err)
           console.log(err);
@@ -52,7 +49,7 @@ if (Meteor.isServer) {
             played: 1
           }
         }, {
-          multi: false,
+          multi: false, 
           upsert: true
         }, function(err, docs) {
           if (err) {
