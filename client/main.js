@@ -4,10 +4,6 @@ UI.registerHelper("log", function(context) {
 
 Meteor.subscribe('songs');
 
-Template.main.greeting = function() {
-  return "Welcome to unicorn-server.";
-};
-
 Template.main.helpers({
   songs: function() {
     return Playlist.find({}).fetch();
