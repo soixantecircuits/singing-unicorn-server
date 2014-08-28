@@ -329,6 +329,16 @@ button:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-decoration: none;
+  -webkit-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -moz-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -ms-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -o-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+   transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+
+}
+.min-header .currentSong .playing:hover {
+  text-decoration: underline;
 }
 .min-header .currentSong .duration {
   display: inline-block;
@@ -373,7 +383,7 @@ footer {
 .nice-message {
   font-size: 16px;
   font-family: "Brandon Grotesque Regular";
-  color: #272727;
+  color: #e49a2d;
   position: absolute;
   width: 100%;
   bottom: 75px;
@@ -382,6 +392,7 @@ footer {
 }
 .nice-message a {
   color: #ffa1a1;
+  text-decoration: underline;
 }
 .typeahead {
   width: 526px; /* 550 - 2*12 padding */

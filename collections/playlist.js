@@ -4,9 +4,6 @@ Playlist.deny({
   insert: function(){
     return true;
   },
-  update: function(){
-    return true;
-  }
 });
 
 if (Meteor.isServer) {
@@ -37,7 +34,7 @@ if (Meteor.isServer) {
         }
       }, {
         multi: true,
-        upsert: true
+        upsert: false
       }, function(err, docs) {
         if (err)
           console.log(err);
@@ -52,7 +49,7 @@ if (Meteor.isServer) {
             played: 1
           }
         }, {
-          multi: false,
+          multi: false, 
           upsert: true
         }, function(err, docs) {
           if (err) {
