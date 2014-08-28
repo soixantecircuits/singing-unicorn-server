@@ -2,6 +2,11 @@ Playlist = new Meteor.Collection("playlist");
 
 
 if (Meteor.isServer) {
+
+  Meteor.publish('songs', function(){
+    return Playlist.find();
+  })
+
   Future = Meteor.require("fibers/future");
   cheerio = Meteor.require('cheerio');
   _ = Meteor.require('lodash');
@@ -186,6 +191,22 @@ if (Meteor.isServer) {
           });
       });
       return fut.wait();
+    },
+    insertSong: function(videoId, name, duration){
+      if(videoId !=undefined && videoId !=='' && typeof videoId == "string" 
+        && name !=undefined && name !== '' && typeof name == "string" 
+        && duration !=undefined && typeof duration == "number"){
+        Playlist.insert({
+          videoId: videoId,
+          name: name,
+          playing: false,
+          played: 0,
+          duration: duration,
+          dateAdded: new Date()
+        });
+      } else {
+        console.log("Mauvaises données, pas d'insert");
+      }
     }
   });
 } else {

@@ -2,6 +2,8 @@ UI.registerHelper("log", function(context) {
   return console.log(context);
 });
 
+Meteor.subscribe('songs');
+
 Template.main.greeting = function() {
   return "Welcome to unicorn-server.";
 };
@@ -237,15 +239,9 @@ Template.main.selected = function(event, suggestion, datasetName) {
     }
 
     $(document).one('click', '.addToPlaylist', function(event) {
-      if (name && $('#songToAdd').data('name')!=="") {
-        Playlist.insert({
-          videoId: $('#songToAdd').data('id'),
-          name: $('#songToAdd').data('name'),
-          playing: false,
-          played: 0,
-          duration: data,
-          dateAdded: new Date()
-        });
+      if (name) {
+        Meteor.call('insertSong', $('#songToAdd').data('id'), $('#songToAdd').data('name'),data);
+
         $('#songToAdd').empty();
         TweenMax.to($('.addToPlaylist'), 0.4, {opacity: 0, scale: 0.9, transformOrigin: "center"});
         $('.addToPlaylist').addClass('grayscale');
