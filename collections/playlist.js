@@ -8,9 +8,9 @@ Playlist.deny({
 
 if (Meteor.isServer) {
 
-  Meteor.publish('songs', function(){
+  Meteor.publish('playlist', function(){
     return Playlist.find();
-  })
+  });
 
   Future = Meteor.require("fibers/future");
   cheerio = Meteor.require('cheerio');

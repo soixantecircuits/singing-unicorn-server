@@ -7,6 +7,10 @@ if (Meteor.isServer) {
     }
   });
 
+  Meteor.publish('pingy', function(){
+    return Pingy.find();
+  })
+
   Meteor.methods({
     helloSomeone: function(online) {
       var userType = online ? 'listener' : 'emitter';

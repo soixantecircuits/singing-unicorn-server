@@ -47,7 +47,6 @@ button:focus {
   width: 90%;
   max-height: 50vh;
   background: url('/img/unicorn.png') center no-repeat;
-  /*padding-left: 15px;*/
   background-size: contain;
 }
 
@@ -65,7 +64,6 @@ button:focus {
 .baseline {
   color: #ffa1a1;
   font-size: 2.5vh;
-  font-weight: 500;
   position: absolute;
   top: 65vh;
   width: 100%
@@ -368,10 +366,19 @@ footer {
   text-indent: -9999px;
   padding: 20px 0;
   margin-top: 30px;
+  position: relative;
+}
+footer a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 /**
  * QUERY
  */
+.aboutMobile {
+  display: none;
+}
 .searchSection {
   background: url('/img/photo_back.png') 0 0 no-repeat;
   background-size: cover;
@@ -407,6 +414,14 @@ footer {
   outline: none;
   color: #FFF;
   font-family: "Brandon Grotesque Regular";
+  -webkit-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -moz-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -ms-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -o-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+   transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.typeahead:hover, .typeahead:focus {
+  background: rgba(255, 161, 161, 0.5);
 }
 
 .tt-dropdown-menu {
@@ -736,6 +751,34 @@ footer {
   }
 }
 @media screen and (max-width: 568px) {
+  .main-title {
+    margin: 0;
+    margin-top: 5%;
+    min-height: 0;
+    height: 100%;
+  }
+  .unicorn-img {
+    max-height: 250px;
+  }
+  .main-title h1{
+    line-height: 26px;
+    font-size: 20px;
+    position: relative;
+    top: 260px;
+  }
+  .baseline {
+    top: 70%;
+    font-size: 14px;
+  }
+  .base-link {
+    font-size: 14px;
+    bottom: 10px;
+  }
+  .base-link button {
+    font-size: 16px;
+    margin: 3% auto;
+    height: 26px;
+  }
   .baseline {
     font-size: 14px;
   }
@@ -745,54 +788,90 @@ footer {
   .base-link button {
     font-size: 14px;
   }
-  .min-header h1 {
-    position: relative;
-    font-size: 16px;
-    line-height: 205px;
+  .social-bar p {
+    display: none;
   }
-  .min-header h1 .unicorn-min {
-    position: absolute;
-    left: 50%;
-    margin-left: -40px;
+  .social-bar .fb-like {
+    width: 50% !important;
+    display: inline !important;
+  }
+  .arrow {
+    display: none;
+  }
+  .social-bar #twitter-widget-1 {
+    display: none;
+  }
+  .obj {
+    display: none;
+  }
+  .min-header {
+    display: none;
+  }
+  .aboutMobile {
+    display: block;
+    background: url('/img/photo_back.png') 0 0 no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 20px 10px;
+    color: #272727;
+    font-family: "Brandon Grotesque Regular";
+  }
+  .aboutMobile h2 {
+    color: white;
+  }
+  .aboutMobile p {
     margin-top: 10px;
   }
-  .min-header .about {
-    line-height: 100px;
+  .aboutMobile a {
+    color: #ffa1a1;
   }
-  .min-header .tooltip-about {
-    padding: 10px;
-  }
-  .min-header .tooltip-about img {
-    height: 20vh;
-    display: block;
-    float: none;
-    margin: auto;
-  }
-  .obj1 {
-    top: 10%;
-  }
-  .obj2 {
-    left: -60px;
-    top: 2;
-  }
-  .obj3 {
-    right: -30px;
-    top: 55%;
-  }
-  .obj4, .obj5 {
-    opacity: 0;
+  .searchSection {
+    display: none;
   }
   .playlistSection h1 {
     font-size: 26px;
     margin-top: 40px;
+    margin: 0;
+    width: 100%;
+  }
+  .playlistSection h2 {
+    margin: 0;
+    font-size: 20px;
+    width: 100%;
+  }
+  .playlistSection h2 strong {
+    font-size: 24px;
+  }
+  .playlistSection h2 .total-duration {
+    top: -36px;
+    left: auto;
+    right: 10px;
+    font-size: 24px;
   }
   .songsCtn {
-    width: 95%;
+    width: 100%;
+    margin: 0;
   }
   .songItem {
     margin: 10px auto;
   }
   .songItem .songName{
-    font-size: 16px;
+    font-size: 14px;
+    margin: 0;
+    width: 70vw;
+  }
+  .songItem .duration {
+    left: 75vw;
+  }
+  .songItem.isPlaying .songName {
+    padding: 0;
+    border: none;
+  }
+  .songItem.isPlaying:before {
+    left: auto;
+    right: 0;
+  } 
+  .tt-dropdown-menu {
+    width: 90%;
   }
 }
