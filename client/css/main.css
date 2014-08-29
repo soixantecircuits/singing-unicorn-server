@@ -414,17 +414,20 @@ footer a {
   margin-top: 20%;
   text-align: center;
   padding: 8px 12px;
-  line-height: 50px;
   border: 2px solid #FFF;
   font-size: 26px;
   background: rgba(255, 161, 161, 0.5);
   outline: none;
   color: #FFF;
+  font-family: "Brandon Grotesque Regular";
   -webkit-transition: border-color 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
   -moz-transition: border-color 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
   -ms-transition: border-color 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
   -o-transition: border-color 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
    transition: border-color 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -webkit-box-sizing: content-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: content-box;    /* Firefox, other Gecko */
+  box-sizing: content-box;         /* Opera/IE 8+ */
 }
 .typeahead:hover {
 
