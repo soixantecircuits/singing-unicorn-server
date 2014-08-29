@@ -416,7 +416,7 @@ footer a {
   padding: 8px 12px;
   border: 2px solid #FFF;
   font-size: 26px;
-  background: rgba(255, 161, 161, 0.5);
+  background: rgba(255, 161, 161, 0.25);
   outline: none;
   color: #FFF;
   font-family: "Brandon Grotesque Regular";
@@ -429,11 +429,8 @@ footer a {
   -moz-box-sizing: content-box;    /* Firefox, other Gecko */
   box-sizing: content-box;         /* Opera/IE 8+ */
 }
-.typeahead:hover {
-
-} 
-.typeahead:focus {
-
+.typeahead:hover, .typeahead:focus {
+  border-color: #ffafaf;
 }
 
 .tt-dropdown-menu {
