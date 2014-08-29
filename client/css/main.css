@@ -300,6 +300,9 @@ input {
   margin-top: 20px;
   line-height: 18px;
 }
+.min-header .tooltip-about a {
+  color: #ffa1a1;
+}
 .min-header .tooltip-about em {
   text-transform: none;
   color: #ffa1a1;
@@ -556,6 +559,9 @@ footer a {
 }
 .playlistSection h2 strong {
   font-size: 30px;
+}
+.current-mobile {
+  display: none;
 }
 .playlistSection h2 .total-duration {
   position: absolute;
@@ -874,6 +880,10 @@ footer a {
   .searchSection {
     display: none;
   }
+  .current-mobile {
+    display: block;
+    margin-bottom: 30px;
+  }
   .playlistSection h1 {
     font-size: 26px;
     margin-top: 40px;
@@ -914,8 +924,7 @@ footer a {
     border: none;
   }
   .songItem.isPlaying:before {
-    left: auto;
-    right: 0;
+    display: none;
   } 
   .tt-dropdown-menu {
     width: 90%;

@@ -77,6 +77,17 @@
 		<div class="obj obj3"></div>
 	</section>
 	<section class="playlistSection pattern">
+		{{#if currentSong}}
+			<div class="current-mobile">
+				<h1>Currently Playing</h1>
+				<ul class="songsCtn">
+					<li class="songItem isPlaying trans-all">
+						<h3 class="songName">{{currentSong}}</h3>
+						<div class="duration">{{currentDuration}}</div>
+					</li>
+				</ul>
+			</div>
+		{{/if}}
 		<h1>Playlist</h1>
 		<h2>Until now <strong>{{songsPlayed}}</strong> songs have been played
 			<span class="total-duration">{{totalDuration}}</span>
