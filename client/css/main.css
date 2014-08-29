@@ -2,6 +2,9 @@
   margin: 0px;
   padding: 0px;
 }
+body {
+  font-family: "Brandon Grotesque Regular";
+}
 
 .pattern {
   background: url('/img/pattern_back.png') 0 0 repeat;
@@ -27,13 +30,19 @@ button:focus {
  */
 .main-header {
   width: 100%;
-  font-family: "Brandon Grotesque Regular";
   text-transform: uppercase;
   text-align: center;
   height: 100vh;
   position: relative;
   top: 0;
   z-index: 5;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
 }
 
 .main-title {
@@ -60,13 +69,15 @@ button:focus {
   content: "a";
   opacity: 0;
 }
-
+.header-about {
+  text-transform: none;
+  font-size: 2vh;
+}
 .baseline {
   color: #ffa1a1;
   font-size: 2.5vh;
-  position: absolute;
-  top: 65vh;
-  width: 100%
+  margin-top: 3vh;
+  width: 100%;
 }
 .arrow {
   display: block;
@@ -74,7 +85,7 @@ button:focus {
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
-  top: 75vh;
+  bottom: 10vh;
   width: 100%;
   height: 26px;
   cursor: pointer;
@@ -135,7 +146,6 @@ button:focus {
   left: 0;
   width: 100%;
   z-index: 666;
-  font-family: "Brandon Grotesque Regular";
 }
 .social-bar {
   height: 30px;
@@ -283,7 +293,6 @@ button:focus {
 }
 .min-header .tooltip-about p {
   text-transform: none;
-  font-family: "Brandon Grotesque Regular";
   margin-top: 20px;
   line-height: 18px;
 }
@@ -292,7 +301,6 @@ button:focus {
   color: #ffa1a1;
   font-style: normal;
   display: block;
-  font-family: "Brandon Grotesque Regular";
   text-align: right;
   margin-top: 12px;
   margin-right: 20px;
@@ -389,7 +397,6 @@ footer a {
 }
 .nice-message {
   font-size: 16px;
-  font-family: "Brandon Grotesque Regular";
   color: #e49a2d;
   position: absolute;
   width: 100%;
@@ -410,18 +417,20 @@ footer a {
   line-height: 50px;
   border: 2px solid #FFF;
   font-size: 26px;
-  background: none transparent;
+  background: rgba(255, 161, 161, 0.5);
   outline: none;
   color: #FFF;
-  font-family: "Brandon Grotesque Regular";
-  -webkit-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
-  -moz-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
-  -ms-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
-  -o-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
-   transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -webkit-transition: border-color 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -moz-transition: border-color 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -ms-transition: border-color 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  -o-transition: border-color 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
+   transition: border-color 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
 }
-.typeahead:hover, .typeahead:focus {
-  background: rgba(255, 161, 161, 0.5);
+.typeahead:hover {
+
+} 
+.typeahead:focus {
+
 }
 
 .tt-dropdown-menu {
@@ -441,7 +450,6 @@ footer a {
 }
 
 .tt-suggestion{
-  font-family: "Brandon Grotesque Regular";
   list-style: none;
   font-size: 16px;
 }
@@ -515,7 +523,6 @@ footer a {
  * PLAYLIST
  */
 .playlistSection {
-  font-family: "Brandon Grotesque Regular";
   margin-top: 3vh;
 }
 
@@ -684,194 +691,4 @@ footer a {
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #FFF;
-}
-
-@media screen and (max-width: 1024px) {
-  .main-title h1 {
-    word-spacing: 2vh;
-    line-height: 5vh;
-    position: absolute;
-    bottom: -6.5vh;
-    display: block;
-    width: 100%;
-  }
-  .main-title h1::before {
-    content: "";
-  }
-  .unicorn-img {
-    margin: 5vh 0;
-    position: relative;
-  }
-  .baseline {
-    font-size: 2.3vh;
-    top: 70vh;
-  }
-  .arrow {
-    top: 78vh;
-  }
-  .min-header h1 {
-    font-size: 18px;
-  }
-  .min-header h1 .unicorn-min {
-    height: 80px;
-    width: 80px;
-    margin: 0 5px;
-  }
-  .min-header .about {
-    font-size: 16px;
-  }
-  .min-header .tooltip-about {
-    left: 2%;
-    width: 96%;
-  }
-  .songsCtn {
-    width: 80%;
-  }
-  .obj2 {
-    top: 8%;
-    left: 6%;
-  }
-  .obj4 {
-    right: 0%;
-    top: 80%;
-  }
-  .obj5 {
-    top: 55%;
-    left: -20px;
-    -ms-transform: rotate(-30deg); /* IE 9 */
-    -webkit-transform: rotate(-30deg); /* Chrome, Safari, Opera */
-    transform: rotate(-30deg);
-  }
-  .typeahead {
-    width: 90vw;
-  }
-  .songItem.isPlaying:hover .info {
-    opacity: 0;
-    left: 0;
-  }
-}
-@media screen and (max-width: 568px) {
-  .main-title {
-    margin: 0;
-    margin-top: 5%;
-    min-height: 0;
-    height: 100%;
-  }
-  .unicorn-img {
-    max-height: 250px;
-  }
-  .main-title h1{
-    line-height: 26px;
-    font-size: 20px;
-    position: relative;
-    top: 260px;
-  }
-  .baseline {
-    top: 70%;
-    font-size: 14px;
-  }
-  .base-link {
-    font-size: 14px;
-    bottom: 10px;
-  }
-  .base-link button {
-    font-size: 16px;
-    margin: 3% auto;
-    height: 26px;
-  }
-  .baseline {
-    font-size: 14px;
-  }
-  .base-link {
-    font-size: 12px;
-  }
-  .base-link button {
-    font-size: 14px;
-  }
-  .social-bar p {
-    display: none;
-  }
-  .social-bar .fb-like {
-    width: 50% !important;
-    display: inline !important;
-  }
-  .arrow {
-    display: none;
-  }
-  .social-bar #twitter-widget-1 {
-    display: none;
-  }
-  .obj {
-    display: none;
-  }
-  .min-header {
-    display: none;
-  }
-  .aboutMobile {
-    display: block;
-    background: url('/img/photo_back.png') 0 0 no-repeat;
-    background-size: cover;
-    text-align: center;
-    padding: 20px 10px;
-    color: #272727;
-    font-family: "Brandon Grotesque Regular";
-  }
-  .aboutMobile h2 {
-    color: white;
-  }
-  .aboutMobile p {
-    margin-top: 10px;
-  }
-  .aboutMobile a {
-    color: #ffa1a1;
-  }
-  .searchSection {
-    display: none;
-  }
-  .playlistSection h1 {
-    font-size: 26px;
-    margin-top: 40px;
-    margin: 0;
-    width: 100%;
-  }
-  .playlistSection h2 {
-    margin: 0;
-    font-size: 20px;
-    width: 100%;
-  }
-  .playlistSection h2 strong {
-    font-size: 24px;
-  }
-  .playlistSection h2 .total-duration {
-    top: -36px;
-    left: auto;
-    right: 10px;
-    font-size: 24px;
-  }
-  .songsCtn {
-    width: 100%;
-    margin: 0;
-  }
-  .songItem {
-    margin: 10px auto;
-  }
-  .songItem .songName{
-    font-size: 14px;
-    margin: 0;
-    width: 70vw;
-  }
-  .songItem .duration {
-    left: 75vw;
-  }
-  .songItem.isPlaying .songName {
-    padding: 0;
-    border: none;
-  }
-  .songItem.isPlaying:before {
-    left: auto;
-    right: 0;
-  } 
-  .tt-dropdown-menu {
-    width: 90%;
-  }
 }

@@ -1,0 +1,64 @@
+@media screen and (max-width: 1024px) {
+  .main-title h1 {
+    word-spacing: 2vh;
+    line-height: 5vh;
+    position: absolute;
+    bottom: -6.5vh;
+    display: block;
+    width: 100%;
+  }
+  .main-title h1::before {
+    content: "";
+  }
+  .unicorn-img {
+    margin: 5vh 0;
+    position: relative;
+  }
+  .baseline {
+    font-size: 2.3vh;
+    top: 70vh;
+  }
+  .arrow {
+    top: 78vh;
+  }
+  .min-header h1 {
+    font-size: 18px;
+  }
+  .min-header h1 .unicorn-min {
+    height: 80px;
+    width: 80px;
+    margin: 0 5px;
+  }
+  .min-header .about {
+    font-size: 16px;
+  }
+  .min-header .tooltip-about {
+    left: 2%;
+    width: 96%;
+  }
+  .songsCtn {
+    width: 80%;
+  }
+  .obj2 {
+    top: 8%;
+    left: 6%;
+  }
+  .obj4 {
+    right: 0%;
+    top: 80%;
+  }
+  .obj5 {
+    top: 55%;
+    left: -20px;
+    -ms-transform: rotate(-30deg); /* IE 9 */
+    -webkit-transform: rotate(-30deg); /* Chrome, Safari, Opera */
+    transform: rotate(-30deg);
+  }
+  .typeahead {
+    width: 90vw;
+  }
+  .songItem.isPlaying:hover .info {
+    opacity: 0;
+    left: 0;
+  }
+}

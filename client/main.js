@@ -121,8 +121,8 @@ Template.main.rendered = function() {
   var arrowTl = new TimelineMax({repeat: -1}),
       arrow = $('.arrow'),
       arrowSpeed = 0.7;
-  arrowTl.add(TweenMax.to(arrow, arrowSpeed, {top: "75.5vh", ease:Quad.easeOut}));
-  arrowTl.add(TweenMax.to(arrow, arrowSpeed, {top: "75vh", ease:Quad.easeOut}));
+  arrowTl.add(TweenMax.to(arrow, arrowSpeed, {bottom: "11vh", ease:Quad.easeOut}));
+  arrowTl.add(TweenMax.to(arrow, arrowSpeed, {bottom: "10vh", ease:Quad.easeOut}));
 };
 
 Template.main.events({
