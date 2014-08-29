@@ -38,7 +38,6 @@ Icon?
 Thumbs.db
 
 settings.json
-client/social.js
 
 .meteor/local
 .meteor/meteorite
