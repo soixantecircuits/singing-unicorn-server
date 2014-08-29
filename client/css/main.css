@@ -185,6 +185,7 @@ input {
   right: 20px;
   top: 8px;
   cursor: pointer;
+  z-index: 999;
   background: url('/img/close_normal.png');
   -webkit-transition: background 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
   -moz-transition: background 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
@@ -775,6 +776,9 @@ footer a {
     left: 2%;
     width: 96%;
   }
+  .min-header .currentSong {
+    font-size: 12px;
+  }
   .playlistSection h1, .playlistSection h2 {
     width: 80%;
   }
@@ -840,6 +844,12 @@ footer a {
   .base-link button {
     font-size: 14px;
   }
+  .fixed-bar {
+    top: -30px;
+  }
+  .social-bar {
+    overflow: hidden;
+  }
   .social-bar p {
     display: none;
   }
@@ -850,8 +860,12 @@ footer a {
   .arrow {
     display: none;
   }
-  .social-bar #twitter-widget-1 {
+  .social-bar .twitter-follow-button{
     display: none;
+  }
+  .social-bar #twitter-widget-0 {
+    width: 79px !important;
+    margin-right: 30px;
   }
   .obj {
     display: none;

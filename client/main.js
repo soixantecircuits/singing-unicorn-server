@@ -128,16 +128,21 @@ Template.main.events({
       menuAppearSpeed = 0.6,
       minMenu = $('.fixed-bar');
 
-    var newTop = ($(window).height() - (minMenu.height() - $('.social-bar').height())) * (-1);
-    TweenMax.to($('#header'), menuAppearSpeed, {
-      top: newTop
-    })
-    TweenMax.to(minMenu, menuAppearSpeed, {
-      top: $('.social-bar').height() * (-1)
-    });
-    TweenMax.to($('.searchSection'), menuAppearSpeed, {
-      'margin-top': minMenu.height() - $('.social-bar').height()
-    });
+    if($(window).width()>568){
+      var newTop = ($(window).height() - (minMenu.height() - $('.social-bar').height())) * (-1);
+      TweenMax.to($('#header'), menuAppearSpeed, {
+        top: newTop
+      })
+      TweenMax.to(minMenu, menuAppearSpeed, {
+        top: $('.social-bar').height() * (-1)
+      });
+      TweenMax.to($('.searchSection'), menuAppearSpeed, {
+        'margin-top': minMenu.height() - $('.social-bar').height()
+      });
+    } else {
+      TweenMax.to(minMenu, menuAppearSpeed, {y: 0});
+      TweenMax.to($('body'), menuAppearSpeed, {y: 0});
+    }
   },
   'click input.addToPlaylist': function() {
     // template data, if any, is available in 'this'
@@ -191,6 +196,12 @@ Template.main.rendered = function() {
   if ($(window).width() < 568) {
     var tooltipHeight = $(window).height() - 170;
     $('.tooltip-about').height(tooltipHeight);
+
+    var menuAppearSpeed = 0.6,
+        minMenu = $('.fixed-bar');
+
+    TweenMax.to(minMenu, menuAppearSpeed, {y: 0});
+    TweenMax.to($('body'), menuAppearSpeed, {y: 30});
   }
 
   $(document).keyup(function(e) {

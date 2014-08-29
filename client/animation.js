@@ -1,20 +1,20 @@
 floatPapercraft = function(){
   var papercrafts = $('.obj');
   for(i=1; i<=papercrafts.length; i++){
-    var paper = $('.obj'+i),
-        position = paper.position();
-    floatSinglePaper(paper, position);
+    var paper = $('.obj'+i);
+    floatSinglePaper(paper);
   }
 }
 
-floatSinglePaper = function(obj, position){
-  var topMove = gaussianNumber(0, 8) +position.top;
-  var leftMove = gaussianNumber(0, 8) + position.left;
+floatSinglePaper = function(obj){
+  var topMove = gaussianNumber(0, 8);
+  var leftMove = gaussianNumber(0, 8);
   topMove = formatDistance(topMove); 
   leftMove = formatDistance(leftMove);
 
-  TweenMax.to(obj, 2, {top: topMove, left: leftMove, ease: Quad.easeOut, onComplete: function(){
-    floatSinglePaper(obj, position);
+  TweenMax.set(obj, {z:0.1}); 
+  TweenMax.to(obj, 2, {y: topMove, x: leftMove, ease: Quad.easeOut, onComplete: function(){
+    floatSinglePaper(obj);
   }});
 }
 
