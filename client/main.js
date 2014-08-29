@@ -207,6 +207,7 @@ Template.main.rendered = function() {
       }
     } // esc
   });
+<<<<<<< HEAD
   var arrowTl = new TimelineMax({
       repeat: -1
     }),
@@ -220,6 +221,13 @@ Template.main.rendered = function() {
     top: "75vh",
     ease: Quad.easeOut
   }));
+=======
+  var arrowTl = new TimelineMax({repeat: -1}),
+      arrow = $('.arrow'),
+      arrowSpeed = 0.7;
+  arrowTl.add(TweenMax.to(arrow, arrowSpeed, {bottom: "11vh", ease:Quad.easeOut}));
+  arrowTl.add(TweenMax.to(arrow, arrowSpeed, {bottom: "10vh", ease:Quad.easeOut}));
+>>>>>>> b21856fc44ebabe9a4c70de5f7dd4bfe1002826f
 };
 
 
