@@ -1,6 +1,3 @@
-var googleId = Meteor.settings.google.id,
-    fbAppId = Meteor.settings.facebook.appId;
-
 // Twitter
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
@@ -9,7 +6,7 @@ var googleId = Meteor.settings.google.id,
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/fr_CA/sdk.js#xfbml=1&appId="+fbAppId+"&version=v2.0";
+  js.src = "//connect.facebook.net/fr_CA/sdk.js#xfbml=1&appId="+Meteor.settings.public.facebook.appId+"&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 // Google
@@ -18,5 +15,5 @@ var googleId = Meteor.settings.google.id,
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create',googleId, 'auto');
+ga('create',Meteor.settings.public.google.id, 'auto');
 ga('send', 'pageview');
