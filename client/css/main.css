@@ -24,6 +24,10 @@ section, header {
 button:focus {
   outline: none;
 }
+input {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
 
 /**
  * HEADER
@@ -330,7 +334,7 @@ button:focus {
 .min-header .currentSong .playing {
   color: #ffa1a1;
   display: inline-block;
-  width: 200px;
+  width: 70%;
   height: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -691,4 +695,217 @@ footer a {
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #FFF;
+}
+
+@media screen and (max-width: 1024px) {
+  .main-title {
+    margin: 0;
+    margin-top: 5%;
+    min-height: 0;
+    height: 100%;
+  }
+  .main-title h1 {
+    word-spacing: normal;
+    display: block;
+    width: 100%;
+    line-height: 36px;
+    font-size: 36px;
+    word-spacing: 7px; 
+    position: absolute;
+    bottom: -50px;
+  }
+  .main-title h1::before {
+    content: "";
+  }
+  .unicorn-img {
+    margin: 0;
+    margin-top: 5%;
+    max-height: 300px;
+    position: relative;
+  }
+  .baseline {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  .arrow {
+    bottom: 20px;
+  }
+  .header-about {
+    margin-top: 10%;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  .social-bar .fb-like {
+    display: inline !important;
+    width: auto !important;
+  }
+  .social-bar .fb-like span {
+    vertical-align: middle !important;
+  }
+  .min-header h1 {
+    font-size: 18px;
+  }
+  .min-header h1 .unicorn-min {
+    height: 80px;
+    width: 80px;
+    margin: 0 5px;
+  }
+  .min-header .about {
+    font-size: 16px;
+  }
+  .min-header .tooltip-about {
+    left: 2%;
+    width: 96%;
+  }
+  .playlistSection h1, .playlistSection h2 {
+    width: 80%;
+  }
+  .songsCtn {
+    width: 80%;
+  }
+  .obj2 {
+    top: 8%;
+    left: 6%;
+  }
+  .obj4 {
+    right: 0%;
+    top: 80%;
+  }
+  .obj5 {
+    top: 55%;
+    left: -20px;
+    -ms-transform: rotate(-30deg); /* IE 9 */
+    -webkit-transform: rotate(-30deg); /* Chrome, Safari, Opera */
+    transform: rotate(-30deg);
+  }
+  .typeahead {
+    width: 90vw;
+  }
+  .songItem.isPlaying:hover .info {
+    opacity: 0;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .unicorn-img {
+    max-height: 250px;
+  }
+  .main-title h1{
+    line-height: 26px;
+    font-size: 20px;
+    position: relative;
+    top: 260px;
+  }
+  .header-about {
+    display: none;
+  }
+  .baseline {
+    margin-top: 20%;
+    font-size: 14px;
+  }
+  .base-link {
+    font-size: 14px;
+    bottom: 10px;
+  }
+  .base-link button {
+    font-size: 16px;
+    margin: 3% auto;
+    height: 26px;
+  }
+  .baseline {
+    font-size: 14px;
+  }
+  .base-link {
+    font-size: 12px;
+  }
+  .base-link button {
+    font-size: 14px;
+  }
+  .social-bar p {
+    display: none;
+  }
+  .social-bar .fb-like {
+    width: 50% !important;
+    display: inline !important;
+  }
+  .arrow {
+    display: none;
+  }
+  .social-bar #twitter-widget-1 {
+    display: none;
+  }
+  .obj {
+    display: none;
+  }
+  .min-header {
+    display: none;
+  }
+  .aboutMobile {
+    display: block;
+    background: url('/img/photo_back.png') 0 0 no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 20px 10px;
+    color: #272727;
+    font-family: "Brandon Grotesque Regular";
+  }
+  .aboutMobile h2 {
+    color: white;
+  }
+  .aboutMobile p {
+    margin-top: 10px;
+  }
+  .aboutMobile a {
+    color: #ffa1a1;
+  }
+  .searchSection {
+    display: none;
+  }
+  .playlistSection h1 {
+    font-size: 26px;
+    margin-top: 40px;
+    margin: 0;
+    width: 100%;
+  }
+  .playlistSection h2 {
+    margin: 0;
+    font-size: 20px;
+    width: 100%;
+  }
+  .playlistSection h2 strong {
+    font-size: 24px;
+  }
+  .playlistSection h2 .total-duration {
+    top: -36px;
+    left: auto;
+    right: 10px;
+    font-size: 24px;
+  }
+  .songsCtn {
+    width: 100%;
+    margin: 0;
+  }
+  .songItem {
+    margin: 10px auto;
+  }
+  .songItem .songName{
+    font-size: 14px;
+    margin: 0;
+    width: 70vw;
+  }
+  .songItem .duration {
+    left: 75vw;
+  }
+  .songItem.isPlaying .songName {
+    padding: 0;
+    border: none;
+  }
+  .songItem.isPlaying:before {
+    left: auto;
+    right: 0;
+  } 
+  .tt-dropdown-menu {
+    width: 90%;
+  }
 }

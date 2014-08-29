@@ -106,7 +106,6 @@ Template.main.rendered = function() {
   if($(window).width()<568){
     var tooltipHeight = $(window).height() -170;
     $('.tooltip-about').height(tooltipHeight);
-    $('.main-header').height($(window).height());
   }
   $(document).keyup(function(e) {
     if (e.keyCode == 27) {
@@ -118,11 +117,21 @@ Template.main.rendered = function() {
     }
     }   // esc
   });
+
   var arrowTl = new TimelineMax({repeat: -1}),
       arrow = $('.arrow'),
       arrowSpeed = 0.7;
-  arrowTl.add(TweenMax.to(arrow, arrowSpeed, {bottom: "11vh", ease:Quad.easeOut}));
-  arrowTl.add(TweenMax.to(arrow, arrowSpeed, {bottom: "10vh", ease:Quad.easeOut}));
+
+  if($(window).height()<=1024){
+    $('.main-header').height($(window).height());
+    arrowTl.add(TweenMax.to(arrow, arrowSpeed, {bottom: "30px", ease:Quad.easeOut}));
+    arrowTl.add(TweenMax.to(arrow, arrowSpeed, {bottom: "20px", ease:Quad.easeOut}));
+  } else {
+    arrowTl.add(TweenMax.to(arrow, arrowSpeed, {bottom: "11vh", ease:Quad.easeOut}));
+    arrowTl.add(TweenMax.to(arrow, arrowSpeed, {bottom: "10vh", ease:Quad.easeOut}));
+  }
+
+
 };
 
 Template.main.events({
