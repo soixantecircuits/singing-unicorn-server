@@ -179,12 +179,19 @@ Template.main.rendered = function() {
     }
   });
 
+  var countScroll = 0;
+
   if ($(window).width() > 568) {
     floatPapercraft();
     $(window).scroll(function(event) {
       // If top of page
       if (Session.get('isAtTop')) {
         scrollAnim();
+      }
+      if(pimpMyTween != undefined && $(window).scrollTop()==0 && countScroll > 1){
+        pimpMyTween.totalProgress(1).kill();
+      } else {
+        countScroll++;
       }
     });
   }

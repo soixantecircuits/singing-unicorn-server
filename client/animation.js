@@ -28,7 +28,7 @@ scrollAnim = function(){
   TweenMax.to(minMenu, menuAppearSpeed, {top: $('.social-bar').height()*(-1)});
   $('.searchSection').css('margin-top', minMenu.height()-$('.social-bar').height());
   TweenMax.to($('.min-header > hr'), menuAppearSpeed, {bottom: "-6px"});
-  TweenMax.to($('#header'), scrollSpeed, {top: newTop, position: 'absolute', onComplete: function(){
+  pimpMyTween = TweenMax.to($('#header'), scrollSpeed, {top: newTop, position: 'absolute', onComplete: function(){
     Session.set('isAtTop', false);
     $('.searchSection').css('z-index', '4');
     setTimeout(function(){
