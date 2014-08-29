@@ -682,6 +682,18 @@ footer a {
   background: url('/img/obj5.png');
 }
 
+.come-in {
+  transform: translateY(150px);
+  animation: come-in 0.8s ease forwards;
+}
+.come-in:nth-child(odd) {
+  animation-duration: 0.6s; /* So they look staggered */
+}
+
+@keyframes come-in {
+  to { transform: translateY(0); }
+}
+
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #FFF;
 }
