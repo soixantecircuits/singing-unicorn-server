@@ -210,6 +210,9 @@ input {
   -ms-user-select: none;
   user-select: none;
 }
+.min-header-scroll {
+  height: 80px;
+}
 .min-header hr {
   display: block;
   width: 100%;
@@ -220,6 +223,9 @@ input {
   position: absolute;
   bottom: 0px;
 }
+.min-header-scroll hr {
+  display: none;
+}
 .min-header h1{
   text-align: center;
   line-height: 120px;
@@ -228,6 +234,9 @@ input {
   margin-right: -4px;
   font-size: 22px;
   letter-spacing: 3px;
+}
+.min-header-scroll h1 {
+  line-height: 80px;
 }
 .min-header h1 .unicorn-min {
   height: 100px;
@@ -242,6 +251,11 @@ input {
   -moz-background-size: cover; /* pour Firefox */
   -o-background-size: cover; /* pour Opera */
   background-size: cover; /* version standardisée */
+}
+.min-header-scroll h1 .unicorn-min {
+  height: 60px;
+  width: 60px;
+  margin: 0 20px;
 }
 .min-header h1 .unicorn-min a {
   height: 100%;
@@ -261,6 +275,10 @@ input {
   box-sizing: border-box;         /* Opera/IE 8+ */
   position: relative;
   z-index: 999;
+}
+.min-header-scroll .about {
+  line-height: 80px;
+  font-size: 19px;
 }
 .min-header .about #about {
   cursor: pointer;
@@ -335,6 +353,10 @@ input {
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
+.min-header-scroll .currentSong {
+  height: 80px;
+  line-height: 80px;
+}
 .min-header .currentSong .playing {
   color: #ffa1a1;
   display: inline-block;
@@ -349,7 +371,9 @@ input {
   -ms-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
   -o-transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
    transition: background 600ms cubic-bezier(0.39, 0.575, 0.565, 1);
-
+}
+.min-header-scroll .currentSong .playing {
+  height: 80px;
 }
 .min-header .currentSong .playing:hover {
   text-decoration: underline;
@@ -358,6 +382,9 @@ input {
   display: inline-block;
   height: 120px;
   vertical-align: top;  
+}
+.min-header-scroll .currentSong .duration {
+  height: 80px;
 }
 .speaker {
   display: inline-block;
@@ -368,6 +395,9 @@ input {
   background-position: center center;
   vertical-align: top;
   margin-right: 6px;
+}
+.min-header-scroll .speaker {
+  height: 80px;
 }
 /**
  * FOOTER
@@ -802,6 +832,7 @@ footer a {
   }
   .typeahead {
     width: 90vw;
+    margin-top: 15%;
   }
   .songItem.isPlaying:hover .info {
     opacity: 0;

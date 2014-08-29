@@ -19,8 +19,8 @@ floatSinglePaper = function(obj){
 }
 
 scrollAnim = function(){
-  var scrollSpeed = 0.6,
-      menuAppearSpeed = 0.6,
+  var scrollSpeed = 0.8,
+      menuAppearSpeed = 0.8,
       minMenu = $('.fixed-bar');
 
   var newTop = ($(window).height() - (minMenu.height()-$('.social-bar').height()) )*(-1);
