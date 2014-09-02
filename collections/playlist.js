@@ -50,7 +50,7 @@ if (Meteor.isServer) {
           }
         }, {
           multi: false, 
-          upsert: true
+          upsert: false
         }, function(err, docs) {
           if (err) {
             console.log(err);
@@ -72,7 +72,7 @@ if (Meteor.isServer) {
         }
       }, {
         multi: false,
-        upsert: true
+        upsert: false
       }, function(err, docs) {
         if (err) {
           console.log(err);

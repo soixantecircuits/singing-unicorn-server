@@ -77,7 +77,11 @@ Template.main.helpers({
     }
     durationFormated += Math.round(totalDuration / 60) + "min";
     return durationFormated;
-  }
+  },
+  loadData: function(){
+    var playlist = Playlist.find().fetch();
+    if(playlist) return true; else return false;
+  },
 });
 
 Template.main.events({
@@ -179,8 +183,15 @@ Template.main.rendered = function() {
     }
   });
 
-  var countScroll = 0;
+  var controller = new ScrollMagic();
+  var tween = TweenMax.to(".min-header", 1, {className: "+=min-header-scroll"});
 
+  // build scene
+  var scene = new ScrollScene({triggerElement: "#playlistDetails", duration: 500, offset: -50})
+          .setTween(tween)
+          .addTo(controller);
+
+  var countScroll = 0;
   if ($(window).width() > 568) {
     floatPapercraft();
     $(window).scroll(function(event) {
